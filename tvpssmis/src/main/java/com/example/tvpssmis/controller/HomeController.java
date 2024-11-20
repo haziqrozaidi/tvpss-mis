@@ -10,8 +10,32 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class HomeController {
 	@GetMapping("/resources/dashboard")
-	public ModelAndView home() {
+	public ModelAndView dashboard() {
 		ModelAndView modelAndView = new ModelAndView("dashboard");
+		return modelAndView;
+	}
+	
+	@GetMapping("/resources/equipment")
+	public ModelAndView equipment() {
+		ModelAndView modelAndView = new ModelAndView("equipment");
+		return modelAndView;
+	}
+	
+	@GetMapping("/resources/performance")
+	public ModelAndView peformance() {
+		ModelAndView modelAndView = new ModelAndView("performance");
+		return modelAndView;
+	}
+	
+	@GetMapping("/resources/studio")
+	public ModelAndView studio() {
+		ModelAndView modelAndView = new ModelAndView("studio");
+		return modelAndView;
+	}
+	
+	@GetMapping("/resources/register-studio")
+	public ModelAndView registerStudio() {
+		ModelAndView modelAndView = new ModelAndView("register-studio");
 		return modelAndView;
 	}
 }
