@@ -38,4 +38,10 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView("register-studio");
 		return modelAndView;
 	}
+	
+	@GetMapping("/resources/uploadActivityContent")
+	public ModelAndView uploadActivityContent() {
+		ModelAndView modelAndView2 = new ModelAndView("uploadActivityContent");
+		return modelAndView2;
+	}
 }
