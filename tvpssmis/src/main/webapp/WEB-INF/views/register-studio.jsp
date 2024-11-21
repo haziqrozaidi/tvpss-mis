@@ -111,7 +111,7 @@
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#people-circle" /></svg> Studio Information
 				</a></li>
-				<li><a href="/tvpssmis/resources/studio-register" class="nav-link active text-white"> <svg
+				<li><a href="/tvpssmis/resources/register-studio" class="nav-link active text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#geo-fill" /></svg> Register Studio
 				</a></li>
