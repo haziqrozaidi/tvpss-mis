@@ -18,6 +18,7 @@
 <%@ include file="/WEB-INF/views/css/sidebars.css"%>
 </style>
 <body>
+<!-- Here goes the Sidebar Navigation -->
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 	  <symbol id="bootstrap" viewBox="0 0 118 94">
 	    <title>Bootstrap</title>
@@ -101,61 +102,30 @@
 	<div class="d-flex" style="min-height: 100vh;">
 		<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
 			style="width: 280px;">
-			<a href="#"
+			<a href="/"
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 				<svg class="bi me-2" width="40" height="32">
-					<use xlink:href="#bootstrap" /></svg> <span class="fs-4">TVPSS MIS</span>
+					<use xlink:href="#bootstrap" /></svg> <span class="fs-4">TVPSS
+					MIS</span>
 			</a>
 			<hr>
-			<ul class="nav nav-pills flex-column mb-4">
-				<li class="nav-item"><a href="#" class="nav-link text-white"
-					aria-current="page"> <svg class="bi me-2" width="16"
-							height="16">
-							<use xlink:href="#chevron-right" /></svg> Resource Management
-				</a></li>
-				<li><a href="/tvpssmis/resources/dashboard" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#speedometer2" /></svg> Dashboard
-				</a></li>
-				<li><a href="/tvpssmis/resources/equipment" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#table" /></svg> Equipment Inventory
-				</a></li>
-				<li><a href="/tvpssmis/resources/performance" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#grid" /></svg> Performance Metrics
-				</a></li>
-				<li><a href="/tvpssmis/resources/studio" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#people-circle" /></svg> Studio Information
-				</a></li>
-				<li><a href="/tvpssmis/resources/register-studio" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#geo-fill" /></svg> Register Studio
-				</a></li>
-			</ul>
 			<ul class="nav nav-pills flex-column mb-auto">
 				<li class="nav-item"><a href="#" class="nav-link text-white"
 					aria-current="page"> <svg class="bi me-2" width="16"
 							height="16">
-							<use xlink:href="#chevron-right" /></svg> Content Upload
+							<use xlink:href="#home" /></svg> Resource Management
 				</a></li>
-<<<<<<< Upstream, based on upstream/main
-				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link active text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#grid" /></svg> Upload Content
-=======
 				<li><a href="/tvpssmis/resources/dashboard"
 					class="nav-link text-white"> <svg class="bi me-2" width="16"
 							height="16">
 							<use xlink:href="#speedometer2" /></svg> Dashboard
 				</a></li>
-				<li><a href="#"
-					class="nav-link active text-white"> <svg class="bi me-2" width="16"
+				<li><a href="/tvpssmis/resources/uploadActivityContent"
+					class="nav-link text-white"> <svg class="bi me-2" width="16"
 							height="16">
 							<use xlink:href="#table" /></svg> Upload Activity Content
 				</a></li>
-				<li><a href="/tvpssmis/resources/uploadDocument" class="nav-link text-white"> <svg
+				<li><a href="#" class="nav-link active text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#table" /></svg> Upload Document
 				</a></li>
@@ -166,7 +136,6 @@
 				<li><a href="#" class="nav-link text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#people-circle" /></svg> Customers
->>>>>>> e47030b Document Upload finished and changes to Activity Upload
 				</a></li>
 			</ul>
 			<hr>
@@ -187,49 +156,48 @@
 				</ul>
 			</div>
 		</div>
-
 		<div class="container-fluid p-4">
 			<!-- WRITE THE FRONTEND OF YOU MODULE HERE USING JSP AND BOOTSTRAP -->
 			<div class="container-fluid p-3">
-					<form action="#" method="POST">
-						<div class="formbold-input-flex">
-							<div>
-								<input type="text" name="firstname" id="firstname"
-									placeholder="Ali" class="formbold-form-input" />
-								<label for="firstname" class="formbold-form-label">
-									First name </label>
-							</div>
-							<div>
-								<input type="text" name="lastname" id="lastname"
-									placeholder="Abu" class="formbold-form-input" />
-								<label for="lastname" class="formbold-form-label"> Last name </label>
-							</div>
-						</div>
-						<div class="formbold-input-flex">
-							<div>
-								<input type="email" name="email" id="email"
-									placeholder="AliAbu@edu.com.my" class="formbold-form-input" />
-								<label for="email" class="formbold-form-label"> Mail </label>
-							</div>
-							<div>
-								<input type="text" name="PSS-ID" id="PSS-ID"
-									placeholder="ABC123" class="formbold-form-input" />
-								<label for="PSS-ID" class="formbold-form-label"> PSS-ID </label>
-							</div>
-						</div>
-
-						<div class="formbold-textarea">
-							<textarea rows="6" name="description" id="description"
-								placeholder="Activity description" class="formbold-form-input"></textarea>
-							<label for="description" class="formbold-form-label"> Description
+				<form action="#" method="POST">
+					<div class="formbold-input-flex">
+						<div>
+							<input type="text" name="staffID" id="staffID"
+								placeholder="Ali" class="formbold-form-input" /> <label
+								for="firstname" class="formbold-form-label"> Staff-ID
 							</label>
 						</div>
+						<div>
+							<input type="text" name="fullname" id="fullname"
+								placeholder="Abu" class="formbold-form-input" /> <label
+								for="lastname" class="formbold-form-label"> Full Name </label>
+						</div>
+					</div>
+					<div class="formbold-input-flex">
+						<div>
+							<input type="email" name="email" id="email"
+								placeholder="AliAbu@edu.com.my" class="formbold-form-input" />
+							<label for="email" class="formbold-form-label"> Mail </label>
+						</div>
+						<div>
+							<input type="text" name="" id="PSS-ID" placeholder=""
+								class="formbold-form-input" /> <label for=""
+								class="formbold-form-label">  </label>
+						</div>
+					</div>
 
-						<div class="container py-2">
+					<div class="formbold-textarea">
+						<textarea rows="6" name="description" id="description"
+							placeholder="Document description" class="formbold-form-input"></textarea>
+						<label for="description" class="formbold-form-label">
+							Description </label>
+					</div>
+
+					<div class="container py-2">
 						<div class="row py-4">
 							<div class="col-lg-6 mx-auto">
 
-								<!-- Upload file input-->
+								<!-- Upload image input-->
 								<div
 									class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
 									<input id="upload" type="file" onchange="readURL(this);"
@@ -244,13 +212,14 @@
 												file</small></label>
 									</div>
 								</div>
-								</div>
 							</div>
 						</div>
-							<button class="formbold-btn">Upload File</button></form>
-				</div>
+					</div>
+					<button class="formbold-btn">Upload File</button>
+				</form>
 			</div>
-</div>
+		</div>
+	</div>
 
 
 	<!-- Bootstrap JS and Popper.js -->
@@ -290,6 +259,10 @@ SHOW UPLOADED IMAGE
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+body {
+	font-family: "Inter", sans-serif;
 }
 
 .formbold-main-wrapper {
