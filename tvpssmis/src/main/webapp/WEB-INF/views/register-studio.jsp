@@ -89,7 +89,7 @@
 					<use xlink:href="#bootstrap" /></svg> <span class="fs-4">TVPSS MIS</span>
 			</a>
 			<hr>
-			<ul class="nav nav-pills flex-column mb-auto">
+			<ul class="nav nav-pills flex-column mb-4">
 				<li class="nav-item"><a href="#" class="nav-link text-white"
 					aria-current="page"> <svg class="bi me-2" width="16"
 							height="16">
@@ -114,6 +114,17 @@
 				<li><a href="/tvpssmis/resources/register-studio" class="nav-link active text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#geo-fill" /></svg> Register Studio
+				</a></li>
+			</ul>
+			<ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item"><a href="#" class="nav-link text-white"
+					aria-current="page"> <svg class="bi me-2" width="16"
+							height="16">
+							<use xlink:href="#chevron-right" /></svg> Content Upload
+				</a></li>
+				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#grid" /></svg> Upload Content
 				</a></li>
 			</ul>
 			<hr>
