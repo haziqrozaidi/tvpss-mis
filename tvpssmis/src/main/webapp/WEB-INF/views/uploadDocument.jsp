@@ -18,6 +18,7 @@
 <%@ include file="/WEB-INF/views/css/sidebars.css"%>
 </style>
 <body>
+<!-- Here goes the Sidebar Navigation -->
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 	  <symbol id="bootstrap" viewBox="0 0 118 94">
 	    <title>Bootstrap</title>
@@ -140,11 +141,11 @@
 							height="16">
 							<use xlink:href="#chevron-right" /></svg> Content Upload
 				</a></li>
-				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link active text-white"> <svg
+				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#grid" /></svg> Upload Content
 				</a></li>
-				<li><a href="/tvpssmis/resources/uploadDocument" class="nav-link text-white"> <svg
+				<li><a href="/tvpssmis/resources/upload" class="nav-link active text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#table" /></svg> Upload Document
 				</a></li>
@@ -167,49 +168,48 @@
 				</ul>
 			</div>
 		</div>
-
 		<div class="container-fluid p-4">
 			<!-- WRITE THE FRONTEND OF YOU MODULE HERE USING JSP AND BOOTSTRAP -->
 			<div class="container-fluid p-3">
-					<form action="#" method="POST">
-						<div class="formbold-input-flex">
-							<div>
-								<input type="text" name="firstname" id="firstname"
-									placeholder="Ali" class="formbold-form-input" />
-								<label for="firstname" class="formbold-form-label">
-									First name </label>
-							</div>
-							<div>
-								<input type="text" name="lastname" id="lastname"
-									placeholder="Abu" class="formbold-form-input" />
-								<label for="lastname" class="formbold-form-label"> Last name </label>
-							</div>
-						</div>
-						<div class="formbold-input-flex">
-							<div>
-								<input type="email" name="email" id="email"
-									placeholder="AliAbu@edu.com.my" class="formbold-form-input" />
-								<label for="email" class="formbold-form-label"> Mail </label>
-							</div>
-							<div>
-								<input type="text" name="PSS-ID" id="PSS-ID"
-									placeholder="ABC123" class="formbold-form-input" />
-								<label for="PSS-ID" class="formbold-form-label"> PSS-ID </label>
-							</div>
-						</div>
-
-						<div class="formbold-textarea">
-							<textarea rows="6" name="description" id="description"
-								placeholder="Activity description" class="formbold-form-input"></textarea>
-							<label for="description" class="formbold-form-label"> Description
+				<form action="#" method="POST">
+					<div class="formbold-input-flex">
+						<div>
+							<input type="text" name="staffID" id="staffID"
+								placeholder="Ali" class="formbold-form-input" /> <label
+								for="firstname" class="formbold-form-label"> Staff-ID
 							</label>
 						</div>
+						<div>
+							<input type="text" name="fullname" id="fullname"
+								placeholder="Abu" class="formbold-form-input" /> <label
+								for="lastname" class="formbold-form-label"> Full Name </label>
+						</div>
+					</div>
+					<div class="formbold-input-flex">
+						<div>
+							<input type="email" name="email" id="email"
+								placeholder="AliAbu@edu.com.my" class="formbold-form-input" />
+							<label for="email" class="formbold-form-label"> Mail </label>
+						</div>
+						<div>
+							<input type="text" name="" id="PSS-ID" placeholder=""
+								class="formbold-form-input" /> <label for=""
+								class="formbold-form-label">  </label>
+						</div>
+					</div>
 
-						<div class="container py-2">
+					<div class="formbold-textarea">
+						<textarea rows="6" name="description" id="description"
+							placeholder="Document description" class="formbold-form-input"></textarea>
+						<label for="description" class="formbold-form-label">
+							Description </label>
+					</div>
+
+					<div class="container py-2">
 						<div class="row py-4">
 							<div class="col-lg-6 mx-auto">
 
-								<!-- Upload file input-->
+								<!-- Upload image input-->
 								<div
 									class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
 									<input id="upload" type="file" onchange="readURL(this);"
@@ -224,14 +224,14 @@
 												file</small></label>
 									</div>
 								</div>
-								</div>
 							</div>
 						</div>
-							<button class="formbold-btn">Upload File</button></form>
-				</div>
+					</div>
+					<button class="formbold-btn">Upload File</button>
+				</form>
 			</div>
-</div>
-</div>
+		</div>
+	</div>
 
 
 	<!-- Bootstrap JS and Popper.js -->
@@ -239,13 +239,6 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 <script>
 /*  ==========================================
 SHOW UPLOADED IMAGE
@@ -279,6 +272,7 @@ SHOW UPLOADED IMAGE
 	padding: 0;
 	box-sizing: border-box;
 }
+
 
 .formbold-main-wrapper {
 	display: flex;
