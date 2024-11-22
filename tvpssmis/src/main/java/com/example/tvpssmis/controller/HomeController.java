@@ -47,12 +47,36 @@ public class HomeController {
 	
 	@GetMapping("/resources/uploadActivityContent")
 	public ModelAndView uploadActivityContent() {
-		ModelAndView modelAndView2 = new ModelAndView("uploadActivityContent");
-		return modelAndView2;
+		ModelAndView modelAndView = new ModelAndView("uploadActivityContent");
+		return modelAndView;
 	}
-	@GetMapping("/resources/uploadDocument")
+	@GetMapping("/resources/upload")
 	public ModelAndView uploadDocument() {
-		ModelAndView modelAndView3= new ModelAndView("uploadDocument");
-		return modelAndView3;
+		ModelAndView modelAndView= new ModelAndView("uploadDocument");
+		return modelAndView;
+	}
+	
+	@GetMapping("/student/application")
+	public ModelAndView studentApplication() {
+		ModelAndView modelAndView = new ModelAndView("ManageApplication");
+		return modelAndView;
+	}
+	
+	@GetMapping("/student/form")
+	public ModelAndView studentForm() {
+		ModelAndView modelAndView = new ModelAndView("StudentForm");
+		return modelAndView;
+	}
+	
+	@GetMapping("/content/manage")
+	public ModelAndView contentManage() {
+		ModelAndView modelAndView = new ModelAndView("ManageContent");
+		return modelAndView;
+	}
+	
+	@GetMapping("/content/update")
+	public ModelAndView contentUpdate() {
+		ModelAndView modelAndView = new ModelAndView("UpdateContentInformation");
+		return modelAndView;
 	}
 }
