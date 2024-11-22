@@ -116,11 +116,11 @@
 							<use xlink:href="#geo-fill" /></svg> Register Studio
 				</a></li>
 			</ul>
-			<ul class="nav nav-pills flex-column mb-auto">
+			<ul class="nav nav-pills flex-column mb-4">
 				<li class="nav-item"><a href="#" class="nav-link text-white"
 					aria-current="page"> <svg class="bi me-2" width="16"
 							height="16">
-							<use xlink:href="#chevron-right" /></svg> Content Upload
+							<use xlink:href="#chevron-right" /></svg> Content
 				</a></li>
 				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link text-white"> <svg
 							class="bi me-2" width="16" height="16">
@@ -130,6 +130,43 @@
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#table" /></svg> Upload Document
 				</a></li>
+				<li class="nav-item">
+					<a href="/tvpssmis/content/manage" class="nav-link text-white" aria-current="page">
+						<svg class="bi me-2" width="16" height="16">
+							<use xlink:href="#collection" />
+						</svg> Manage Content
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/tvpssmis/content/update" class="nav-link text-white" aria-current="page">
+						<svg class="bi me-2" width="16" height="16">
+							<use xlink:href="#tools" />
+						</svg> Edit Content
+					</a>
+				</li>
+			</ul>
+			<ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item">
+					<a href="#" class="nav-link text-white" aria-current="page">
+						<svg class="bi me-2" width="16" height="16">
+							<use xlink:href="#chevron-right" />
+						</svg> Student Application
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/tvpssmis/student/application" class="nav-link text-white" aria-current="page">
+						<svg class="bi me-2" width="16" height="16">
+							<use xlink:href="#grid" />
+						</svg> Manage Application
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="/tvpssmis/student/form" class="nav-link text-white" aria-current="page">
+						<svg class="bi me-2" width="16" height="16">
+							<use xlink:href="#people-circle" />
+						</svg> Student Form
+					</a>
+				</li>
 			</ul>
 			<hr>
 			<div class="dropdown">
