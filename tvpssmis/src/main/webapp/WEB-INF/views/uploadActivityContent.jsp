@@ -140,33 +140,13 @@
 							height="16">
 							<use xlink:href="#chevron-right" /></svg> Content Upload
 				</a></li>
-<<<<<<< Upstream, based on upstream/main
 				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link active text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#grid" /></svg> Upload Content
-=======
-				<li><a href="/tvpssmis/resources/dashboard"
-					class="nav-link text-white"> <svg class="bi me-2" width="16"
-							height="16">
-							<use xlink:href="#speedometer2" /></svg> Dashboard
-				</a></li>
-				<li><a href="#"
-					class="nav-link active text-white"> <svg class="bi me-2" width="16"
-							height="16">
-							<use xlink:href="#table" /></svg> Upload Activity Content
 				</a></li>
 				<li><a href="/tvpssmis/resources/uploadDocument" class="nav-link text-white"> <svg
 							class="bi me-2" width="16" height="16">
 							<use xlink:href="#table" /></svg> Upload Document
-				</a></li>
-				<li><a href="#" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#grid" /></svg> Products
-				</a></li>
-				<li><a href="#" class="nav-link text-white"> <svg
-							class="bi me-2" width="16" height="16">
-							<use xlink:href="#people-circle" /></svg> Customers
->>>>>>> e47030b Document Upload finished and changes to Activity Upload
 				</a></li>
 			</ul>
 			<hr>
@@ -251,6 +231,7 @@
 				</div>
 			</div>
 </div>
+</div>
 
 
 	<!-- Bootstrap JS and Popper.js -->
@@ -258,6 +239,13 @@
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 <script>
 /*  ==========================================
 SHOW UPLOADED IMAGE
