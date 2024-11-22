@@ -50,4 +50,9 @@ public class HomeController {
 		ModelAndView modelAndView2 = new ModelAndView("uploadActivityContent");
 		return modelAndView2;
 	}
+	@GetMapping("/resources/uploadDocument")
+	public ModelAndView uploadDocument() {
+		ModelAndView modelAndView3= new ModelAndView("uploadDocument");
+		return modelAndView3;
+	}
 }
