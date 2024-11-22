@@ -12,7 +12,8 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <!-- Sidebar -->
-    <%@include file="/WEB-INF/views/css/sidebarsxnavbar.css"%>
+    <style><%@include file="/WEB-INF/views/css/sidebarsxnavbar.css"%></style>
+    <style><%@include file="/WEB-INF/views/css/sidebars.css"%></style>
     <!-- Icon Scout -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <style>
@@ -168,54 +169,73 @@
   
       <div class="d-flex" style="min-height: 100vh;">
           <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-              style="width: 280px;">
-              <a href="/"
-                  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                  <svg class="bi me-2" width="40" height="32">
-                      <use xlink:href="#bootstrap" /></svg> <span class="fs-4">TVPSS MIS</span>
-              </a>
-              <hr>
-              <ul class="nav nav-pills flex-column mb-auto">
-                  <li class="nav-item"><a href="#" class="nav-link text-white"
-                      aria-current="page"> <svg class="bi me-2" width="16"
-                              height="16">
-                              <use xlink:href="#home" /></svg> Resource Management
-                  </a></li>
-                  <li><a href="#" class="nav-link text-white"> <svg
-                              class="bi me-2" width="16" height="16">
-                              <use xlink:href="#speedometer2" /></svg> Dashboard
-                  </a></li>
-                  <li><a href="#" class="nav-link active text-white"> <svg
-                              class="bi me-2" width="16" height="16">
-                              <use xlink:href="#table" /></svg> Student Application
-                  </a></li>
-                  <li><a href="#" class="nav-link text-white"> <svg
-                              class="bi me-2" width="16" height="16">
-                              <use xlink:href="#grid" /></svg> Content Upload
-                  </a></li>
-                  <li><a href="#" class="nav-link text-white"> <svg
-                              class="bi me-2" width="16" height="16">
-                              <use xlink:href="#people-circle" /></svg> Content Management
-                  </a></li>
-              </ul>
-              <hr>
-              <div class="dropdown">
-                  <a href="#"
-                      class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                      id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="https://github.com/mdo.png" alt="" width="32" height="32"
-                      class="rounded-circle me-2"> <strong>Ahmad</strong>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                      aria-labelledby="dropdownUser1">
-                      <li><a class="dropdown-item" href="#">New project...</a></li>
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Sign out</a></li>
-                  </ul>
-              </div>
-          </div>
+			style="width: 280px;">
+			<a href="#"
+				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+				<svg class="bi me-2" width="40" height="32">
+					<use xlink:href="#bootstrap" /></svg> <span class="fs-4">TVPSS MIS</span>
+			</a>
+			<hr>
+			<ul class="nav nav-pills flex-column mb-4">
+				<li class="nav-item"><a href="#" class="nav-link text-white"
+					aria-current="page"> <svg class="bi me-2" width="16"
+							height="16">
+							<use xlink:href="#chevron-right" /></svg> Resource Management
+				</a></li>
+				<li><a href="/tvpssmis/resources/dashboard" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#speedometer2" /></svg> Dashboard
+				</a></li>
+				<li><a href="/tvpssmis/resources/equipment" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#table" /></svg> Equipment Inventory
+				</a></li>
+				<li><a href="/tvpssmis/resources/performance" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#grid" /></svg> Performance Metrics
+				</a></li>
+				<li><a href="/tvpssmis/resources/studio" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#people-circle" /></svg> Studio Information
+				</a></li>
+				<li><a href="/tvpssmis/resources/register-studio" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#geo-fill" /></svg> Register Studio
+				</a></li>
+			</ul>
+			<ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item"><a href="#" class="nav-link text-white"
+					aria-current="page"> <svg class="bi me-2" width="16"
+							height="16">
+							<use xlink:href="#chevron-right" /></svg> Content Upload
+				</a></li>
+				<li><a href="/tvpssmis/resources/uploadActivityContent" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#grid" /></svg> Upload Content
+				</a></li>
+				<li><a href="/tvpssmis/resources/upload" class="nav-link text-white"> <svg
+							class="bi me-2" width="16" height="16">
+							<use xlink:href="#table" /></svg> Upload Document
+				</a></li>
+			</ul>
+			<hr>
+			<div class="dropdown">
+				<a href="#"
+					class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+					id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+					<img src="https://github.com/mdo.png" alt="" width="32" height="32"
+					class="rounded-circle me-2"> <strong>Ahmad</strong>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+					aria-labelledby="dropdownUser1">
+					<li><a class="dropdown-item" href="#">New project...</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Sign out</a></li>
+				</ul>
+			</div>
+		</div>
     
     <div class="container">      
         <header>
@@ -248,7 +268,7 @@
             </nav>
         </header>
 
-    <main class="content-container">
+    <div class="content-container">
         <h1>Student Application Form</h1>
         <form>
             <div>
@@ -290,7 +310,7 @@
                 <button type="submit" class="submit-button">Submit Form</button>
             </div>
         </form>
-    </main>
+    </div>
 
 </body>
 
