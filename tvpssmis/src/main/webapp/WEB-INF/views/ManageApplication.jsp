@@ -470,7 +470,7 @@
             </header>
 
             <div class="content-container">
-                <h1>Manage Content</h1>
+                <h1>Manage Application</h1>
                 <div class="tabs">
                     <button class="tab active">All Application</button>
                 </div>
