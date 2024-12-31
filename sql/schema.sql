@@ -23,26 +23,15 @@ CREATE TABLE user (
     school_id INT,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
-    status VARCHAR(20) DEFAULT 'Active',
-    FOREIGN KEY (role_id) REFERENCES role(role_id),
-    FOREIGN KEY (school_id) REFERENCES school(school_id)
-);
-
--- Create student table
-CREATE TABLE student (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
-    school_id INT,
-    full_name VARCHAR(100) NOT NULL,
-    class VARCHAR(20),
     date_of_birth DATE,
     gender VARCHAR(20),
     contact_number VARCHAR(20),
-    email VARCHAR(100),
+    email VARCHAR(100) NOT NULL,
     address TEXT,
     join_date DATE,
     status VARCHAR(20) DEFAULT 'Active',
+    FOREIGN KEY (role_id) REFERENCES role(role_id),
     FOREIGN KEY (school_id) REFERENCES school(school_id)
 );
 
@@ -60,13 +49,13 @@ CREATE TABLE program (
 CREATE TABLE student_application (
     application_id INT PRIMARY KEY AUTO_INCREMENT,
     program_id INT,
-    student_id INT,
+    user_id INT,
     apply_date DATE,
     status VARCHAR(20) DEFAULT 'Pending',
     interests TEXT,
     skills TEXT,
     FOREIGN KEY (program_id) REFERENCES program(program_id),
-    FOREIGN KEY (student_id) REFERENCES student(student_id)
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 -- Create content table
@@ -98,12 +87,12 @@ CREATE TABLE studio (
 CREATE TABLE crew (
     crew_id INT PRIMARY KEY AUTO_INCREMENT,
     studio_id INT,
-    student_id INT,
+    user_id INT,
     role VARCHAR(50),
     join_date DATE,
     status VARCHAR(20) DEFAULT 'Active',
     FOREIGN KEY (studio_id) REFERENCES studio(studio_id),
-    FOREIGN KEY (student_id) REFERENCES student(student_id)
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 -- Create equipment table
