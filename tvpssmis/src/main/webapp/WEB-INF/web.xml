@@ -24,7 +24,7 @@
 	
 	<context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>config.RootConfig</param-value>
+        <param-value>com.example.tvpssmis.config.RootConfig</param-value>
     </context-param>
 	
 	<servlet>
