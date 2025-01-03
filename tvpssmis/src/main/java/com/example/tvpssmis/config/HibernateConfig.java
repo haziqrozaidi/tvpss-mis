@@ -47,7 +47,7 @@ public class HibernateConfig implements WebMvcConfigurer {
 	public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource);
-		sessionFactoryBean.setPackagesToScan("entity");
+		sessionFactoryBean.setPackagesToScan("com.example.tvpssmis.entity");
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 		// you can add more Hibernate properties here as needed

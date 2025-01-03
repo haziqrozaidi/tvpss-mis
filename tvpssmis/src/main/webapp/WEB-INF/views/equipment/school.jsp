@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,37 +44,71 @@ pageEncoding="UTF-8"%>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>SMK Teknologi Media</td>
-                    <td>Jalan Teknologi 123, Kuala Lumpur</td>
-                    <td>+60 3-1234 5678</td>
-                    <td>admin@smkteknologimedia.edu.my</td>
-                    <td>
-                      <a href="#" target="_blank" class="text-primary">
-                        <i class="fab fa-youtube me-2"></i>View Channel
-                      </a>
-                    </td>
-                    <td><span class="badge bg-success">Active</span></td>
-                    <td>
-                      <div class="btn-group" role="group">
-                        <button
-                          class="btn btn-sm btn-warning"
-                          data-bs-toggle="modal"
-                          data-bs-target="#editSchoolModal"
-                        >
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button
-                          class="btn btn-sm btn-info"
-                          data-bs-toggle="modal"
-                          data-bs-target="#viewSchoolModal"
-                        >
-                          <i class="fas fa-eye"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <!-- Add more rows as needed -->
+                  <c:choose>
+                    <c:when test="${not empty schools}">
+                      <c:forEach var="school" items="${schools}">
+                        <tr>
+                          <td>${school.schoolName}</td>
+                          <td>${school.schoolAddress}</td>
+                          <td>${school.contactNumber}</td>
+                          <td>${school.email}</td>
+                          <td>
+                            <c:choose>
+                              <c:when test="${not empty schoolPrograms[school.schoolId]}">
+                                <a
+                                  href="${schoolPrograms[school.schoolId].youTubeChannelLink}"
+                                  target="_blank"
+                                  class="btn btn-sm btn-link"
+                                >
+                                  View Channel
+                                </a>
+                              </c:when>
+                              <c:otherwise>
+                                <span class="text-muted">No channel linked</span>
+                              </c:otherwise>
+                            </c:choose>
+                          </td>
+                          <td>
+                            <c:choose>
+                              <c:when test="${not empty schoolPrograms[school.schoolId]}">
+                                <span
+                                  class="badge bg-${schoolPrograms[school.schoolId].status == 'Active' ? 'success' : 'warning'}"
+                                >
+                                  ${schoolPrograms[school.schoolId].status}
+                                </span>
+                              </c:when>
+                              <c:otherwise>
+                                <span class="badge bg-secondary">No Program</span>
+                              </c:otherwise>
+                            </c:choose>
+                          </td>
+                          <td>
+                            <div class="btn-group" role="group">
+                              <button
+                                class="btn btn-sm btn-warning"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editSchoolModal${school.schoolId}"
+                              >
+                                <i class="fas fa-edit"></i>
+                              </button>
+                              <button
+                                class="btn btn-sm btn-info"
+                                data-bs-toggle="modal"
+                                data-bs-target="#viewSchoolModal${school.schoolId}"
+                              >
+                                <i class="fas fa-eye"></i>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                      <tr>
+                        <td colspan="7" class="text-center">No schools found</td>
+                      </tr>
+                    </c:otherwise>
+                  </c:choose>
                 </tbody>
               </table>
             </div>

@@ -6,9 +6,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.tvpssmis.entity.Program;
+import com.example.tvpssmis.entity.School;
+import com.example.tvpssmis.service.ProgramDAO;
+import com.example.tvpssmis.service.SchoolDAO;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
+	@Autowired
+    private SchoolDAO schoolDAO;
+	
+	@Autowired
+	private ProgramDAO programDAO;
+	
 	@GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView("login");
@@ -82,7 +99,20 @@ public class HomeController {
 	
 	@GetMapping("/equipment/school")
 	public ModelAndView equipmentSchool() {
-		ModelAndView modelAndView = new ModelAndView("equipment/school");
-		return modelAndView;
+	    ModelAndView modelAndView = new ModelAndView("equipment/school");
+	    List<School> schools = schoolDAO.findAll();
+	    
+	    // Get programs for each school
+	    Map<Integer, Program> schoolPrograms = new HashMap<>();
+	    for (School school : schools) {
+	        List<Program> programs = programDAO.findBySchoolId(school.getSchoolId());
+	        if (!programs.isEmpty()) {
+	            schoolPrograms.put(school.getSchoolId(), programs.get(0));
+	        }
+	    }
+	    
+	    modelAndView.addObject("schools", schools);
+	    modelAndView.addObject("schoolPrograms", schoolPrograms);
+	    return modelAndView;
 	}
 }
