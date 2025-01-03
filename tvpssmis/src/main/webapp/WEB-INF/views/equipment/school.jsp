@@ -84,5 +84,15 @@ pageEncoding="UTF-8"%>
     </div>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const equipmentNavLink = document.querySelector(
+          'a[href="/tvpssmis/resources/equipment"]',
+        );
+        if (equipmentNavLink) {
+          equipmentNavLink.classList.add("active");
+        }
+      });
+    </script>
   </body>
 </html>

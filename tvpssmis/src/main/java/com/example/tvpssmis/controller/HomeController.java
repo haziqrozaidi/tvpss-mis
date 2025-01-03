@@ -79,4 +79,10 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView("UpdateContentInformation");
 		return modelAndView;
 	}
+	
+	@GetMapping("/equipment/school")
+	public ModelAndView equipmentSchool() {
+		ModelAndView modelAndView = new ModelAndView("equipment/school");
+		return modelAndView;
+	}
 }
