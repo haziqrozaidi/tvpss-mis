@@ -91,13 +91,12 @@
                               >
                                 <i class="fas fa-edit"></i>
                               </button>
-                              <button
+                              <a
+                                href="${pageContext.request.contextPath}/equipment/studio?schoolId=${school.schoolId}"
                                 class="btn btn-sm btn-info"
-                                data-bs-toggle="modal"
-                                data-bs-target="#viewSchoolModal${school.schoolId}"
                               >
                                 <i class="fas fa-eye"></i>
-                              </button>
+                              </a>
                             </div>
                           </td>
                         </tr>

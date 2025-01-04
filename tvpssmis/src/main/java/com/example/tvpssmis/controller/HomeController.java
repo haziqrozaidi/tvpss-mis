@@ -3,9 +3,11 @@ package com.example.tvpssmis.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,8 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.tvpssmis.entity.Program;
 import com.example.tvpssmis.entity.School;
+import com.example.tvpssmis.entity.Studio;
 import com.example.tvpssmis.service.ProgramDAO;
 import com.example.tvpssmis.service.SchoolDAO;
+import com.example.tvpssmis.service.StudioDAO;
 
 @Controller
 @RequestMapping("/")
@@ -25,6 +29,9 @@ public class HomeController {
 	
 	@Autowired
 	private ProgramDAO programDAO;
+	
+	@Autowired
+    private StudioDAO studioDAO;
 	
 	@GetMapping("/login")
 	public ModelAndView login() {
@@ -115,4 +122,25 @@ public class HomeController {
 	    modelAndView.addObject("schoolPrograms", schoolPrograms);
 	    return modelAndView;
 	}
+	
+	@GetMapping("/equipment/studio")
+    public ModelAndView equipmentStudio(@RequestParam("schoolId") int schoolId) {
+        ModelAndView modelAndView = new ModelAndView("equipment/studio");
+        
+        // Get the school
+        School school = schoolDAO.findById(schoolId);
+        
+        // Get all programs for this school
+        List<Program> programs = programDAO.findBySchoolId(schoolId);
+        
+        // Get all studios for these programs
+        List<Studio> studios = new ArrayList<>();
+        for (Program program : programs) {
+            studios.addAll(studioDAO.findByProgramId(program.getProgramId()));
+        }
+        
+        modelAndView.addObject("school", school);
+        modelAndView.addObject("studios", studios);
+        return modelAndView;
+    }
 }
