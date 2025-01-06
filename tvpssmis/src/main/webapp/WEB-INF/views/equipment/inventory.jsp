@@ -39,6 +39,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             >
               <i class="fas fa-arrow-left"></i> Back to Studio
             </a>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#addEquipmentModal"
+            >
+              <i class="fas fa-plus"></i> Add Equipment
+            </button>
           </div>
         </div>
 
@@ -217,6 +224,101 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </div>
     </c:forEach>
+    
+    <!-- Add Equipment Modal -->
+    <div
+      class="modal fade"
+      id="addEquipmentModal"
+      tabindex="-1"
+      aria-labelledby="addEquipmentModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addEquipmentModalLabel">Add Equipment</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="${pageContext.request.contextPath}/equipment/add"
+              method="post"
+            >
+              <input type="hidden" name="studioId" value="${studio.studioId}" />
+              <div class="mb-3">
+                <label for="newEquipmentName" class="form-label"
+                  >Equipment Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="newEquipmentName"
+                  name="equipmentName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="newEquipmentType" class="form-label">Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="newEquipmentType"
+                  name="equipmentType"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="newQuantity" class="form-label">Quantity</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="newQuantity"
+                  name="quantity"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="newStatus" class="form-label">Status</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="newStatus"
+                  name="status"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="newPurchaseDate" class="form-label"
+                  >Purchase Date</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="newPurchaseDate"
+                  name="purchaseDate"
+                  required
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">Add Equipment</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

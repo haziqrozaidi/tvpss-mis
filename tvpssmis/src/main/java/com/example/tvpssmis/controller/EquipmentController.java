@@ -48,4 +48,26 @@ public class EquipmentController {
 
         return "redirect:/equipment/inventory?studioId=" + studioId;
     }
+    
+    @PostMapping("/add")
+    public String addEquipment(
+        @RequestParam("studioId") int studioId,
+        @RequestParam("equipmentName") String equipmentName,
+        @RequestParam("equipmentType") String equipmentType,
+        @RequestParam("quantity") int quantity,
+        @RequestParam("status") String status,
+        @RequestParam("purchaseDate") String purchaseDate
+    ) {
+        Equipment equipment = new Equipment();
+        equipment.setStudio(equipmentDAO.findStudioById(studioId));
+        equipment.setEquipmentName(equipmentName);
+        equipment.setEquipmentType(equipmentType);
+        equipment.setQuantity(quantity);
+        equipment.setStatus(status);
+        equipment.setPurchaseDate(Date.valueOf(purchaseDate));
+
+        equipmentDAO.save(equipment);
+
+        return "redirect:/equipment/inventory?studioId=" + studioId;
+    }
 }

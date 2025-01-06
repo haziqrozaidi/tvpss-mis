@@ -1,6 +1,7 @@
 package com.example.tvpssmis.service;
 
 import com.example.tvpssmis.entity.Equipment;
+import com.example.tvpssmis.entity.Studio;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,11 @@ public class EquipmentDAO {
         return currentSession.createQuery("from Equipment where studio.studioId = :studioId", Equipment.class)
                 .setParameter("studioId", studioId)
                 .getResultList();
+    }
+    
+    @Transactional
+    public Studio findStudioById(int studioId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.get(Studio.class, studioId);
     }
 }
