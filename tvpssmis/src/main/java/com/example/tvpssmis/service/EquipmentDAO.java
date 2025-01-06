@@ -39,7 +39,6 @@ public class EquipmentDAO {
         Equipment existingEquipment = currentSession.get(Equipment.class, id);
         
         if (existingEquipment != null) {
-            existingEquipment.setStudio(equipment.getStudio());
             existingEquipment.setEquipmentName(equipment.getEquipmentName());
             existingEquipment.setEquipmentType(equipment.getEquipmentType());
             existingEquipment.setQuantity(equipment.getQuantity());

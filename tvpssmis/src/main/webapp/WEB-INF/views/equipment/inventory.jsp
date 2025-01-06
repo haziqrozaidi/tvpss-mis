@@ -53,6 +53,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <th>Quantity</th>
                     <th>Status</th>
                     <th>Purchase Date</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -65,6 +66,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                           <td>${equipment.quantity}</td>
                           <td>${equipment.status}</td>
                           <td>${equipment.purchaseDate}</td>
+                          <td>
+                            <button
+                              class="btn btn-sm btn-warning"
+                              data-bs-toggle="modal"
+                              data-bs-target="#editEquipmentModal${equipment.equipmentId}"
+                            >
+                              <i class="fas fa-edit"></i>
+                            </button>
+                          </td>
                         </tr>
                       </c:forEach>
                     </c:when>
@@ -83,6 +93,115 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </div>
     </div>
+    
+    <!-- Edit Equipment Modal -->
+    <c:forEach var="equipment" items="${equipmentList}">
+      <div
+        class="modal fade"
+        id="editEquipmentModal${equipment.equipmentId}"
+        tabindex="-1"
+        aria-labelledby="editEquipmentModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editEquipmentModalLabel">
+                Edit Equipment
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form
+                action="${pageContext.request.contextPath}/equipment/update"
+                method="post"
+              >
+                <input
+                  type="hidden"
+                  name="equipmentId"
+                  value="${equipment.equipmentId}"
+                />
+                <div class="mb-3">
+                  <label for="equipmentName" class="form-label"
+                    >Equipment Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="equipmentName"
+                    name="equipmentName"
+                    value="${equipment.equipmentName}"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="equipmentType" class="form-label">Type</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="equipmentType"
+                    name="equipmentType"
+                    value="${equipment.equipmentType}"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="quantity" class="form-label">Quantity</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="quantity"
+                    name="quantity"
+                    value="${equipment.quantity}"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="status" class="form-label">Status</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="status"
+                    name="status"
+                    value="${equipment.status}"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="purchaseDate" class="form-label">Purchase Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="purchaseDate"
+                    name="purchaseDate"
+                    value="${equipment.purchaseDate}"
+                    required
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </c:forEach>
+    
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
