@@ -14,9 +14,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.example.tvpssmis.entity.Equipment;
 import com.example.tvpssmis.entity.Program;
 import com.example.tvpssmis.entity.School;
 import com.example.tvpssmis.entity.Studio;
+import com.example.tvpssmis.service.EquipmentDAO;
 import com.example.tvpssmis.service.ProgramDAO;
 import com.example.tvpssmis.service.SchoolDAO;
 import com.example.tvpssmis.service.StudioDAO;
@@ -32,6 +34,9 @@ public class HomeController {
 	
 	@Autowired
     private StudioDAO studioDAO;
+	
+	@Autowired
+    private EquipmentDAO equipmentDAO;
 	
 	@GetMapping("/login")
 	public ModelAndView login() {
@@ -141,6 +146,18 @@ public class HomeController {
         
         modelAndView.addObject("school", school);
         modelAndView.addObject("studios", studios);
+        return modelAndView;
+    }
+	
+	@GetMapping("/equipment/inventory")
+    public ModelAndView equipmentInventory(@RequestParam("studioId") int studioId) {
+        ModelAndView modelAndView = new ModelAndView("equipment/inventory");
+        
+        Studio studio = studioDAO.findById(studioId);
+        List<Equipment> equipmentList = equipmentDAO.findByStudioId(studioId);
+        
+        modelAndView.addObject("studio", studio);
+        modelAndView.addObject("equipmentList", equipmentList);
         return modelAndView;
     }
 }

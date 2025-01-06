@@ -6,7 +6,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Studio Equipment Management | TVPSS MIS</title>
+    <title>Studio Equipment Inventory | TVPSS MIS</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -29,15 +29,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="container-fluid p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <div>
-            <h1 class="mb-0">Studio Equipment Management</h1>
-            <p class="text-muted mb-0">School: ${school.schoolName}</p>
+            <h1 class="mb-0">Studio Equipment Inventory</h1>
+            <p class="text-muted mb-0">Studio: ${studio.studioName}</p>
           </div>
           <div>
             <a
-              href="${pageContext.request.contextPath}/equipment/school"
+              href="${pageContext.request.contextPath}/equipment/studio?schoolId=${studio.program.school.schoolId}"
               class="btn btn-secondary"
             >
-              <i class="fas fa-arrow-left"></i> Back to Schools
+              <i class="fas fa-arrow-left"></i> Back to Studio
             </a>
           </div>
         </div>
@@ -48,47 +48,30 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <table class="table table-striped table-hover">
                 <thead class="table-dark">
                   <tr>
-                    <th>Studio Name</th>
-                    <th>Studio Level</th>
-                    <th>Studio Location</th>
-                    <th>Size (sq ft)</th>
+                    <th>Equipment Name</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
                     <th>Status</th>
-                    <th>Program</th>
-                    <th>Actions</th>
+                    <th>Purchase Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   <c:choose>
-                    <c:when test="${not empty studios}">
-                      <c:forEach var="studio" items="${studios}">
+                    <c:when test="${not empty equipmentList}">
+                      <c:forEach var="equipment" items="${equipmentList}">
                         <tr>
-                          <td>${studio.studioName}</td>
-                          <td>${studio.studioLevel}</td>
-                          <td>${studio.location}</td>
-                          <td>${studio.size}</td>
-                          <td>
-                            <span
-                              class="badge bg-${studio.status == 'Operational' ? 'success' : 'warning'}"
-                            >
-                              ${studio.status}
-                            </span>
-                          </td>
-                          <td>${studio.program.school.schoolName}</td>
-                          <td>
-                            <a
-                              href="${pageContext.request.contextPath}/equipment/inventory?studioId=${studio.studioId}"
-                              class="btn btn-sm btn-info"
-                            >
-                              <i class="fas fa-eye"></i>
-                            </a>
-                          </td>
+                          <td>${equipment.equipmentName}</td>
+                          <td>${equipment.equipmentType}</td>
+                          <td>${equipment.quantity}</td>
+                          <td>${equipment.status}</td>
+                          <td>${equipment.purchaseDate}</td>
                         </tr>
                       </c:forEach>
                     </c:when>
                     <c:otherwise>
                       <tr>
-                        <td colspan="6" class="text-center">
-                          No studios found for this school
+                        <td colspan="5" class="text-center">
+                          No equipment found for this studio
                         </td>
                       </tr>
                     </c:otherwise>
