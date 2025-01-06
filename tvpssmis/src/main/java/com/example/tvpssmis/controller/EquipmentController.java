@@ -39,4 +39,13 @@ public class EquipmentController {
 
         return "redirect:/equipment/inventory?studioId=" + equipment.getStudio().getStudioId();
     }
+    
+    @PostMapping("/delete")
+    public String deleteEquipment(@RequestParam("equipmentId") int equipmentId) {
+        Equipment equipment = equipmentDAO.findById(equipmentId);
+        int studioId = equipment.getStudio().getStudioId();
+        equipmentDAO.delete(equipmentId);
+
+        return "redirect:/equipment/inventory?studioId=" + studioId;
+    }
 }

@@ -51,10 +51,9 @@ public class EquipmentDAO {
     @Transactional
     public void delete(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Equipment equipmentToDelete = currentSession.get(Equipment.class, id);
-        
-        if (equipmentToDelete != null) {
-            currentSession.delete(equipmentToDelete);
+        Equipment equipment = currentSession.byId(Equipment.class).load(id);
+        if (equipment != null) {
+            currentSession.delete(equipment);
         }
     }
 

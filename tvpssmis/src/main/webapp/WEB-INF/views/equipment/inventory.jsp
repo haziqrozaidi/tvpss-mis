@@ -67,13 +67,29 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                           <td>${equipment.status}</td>
                           <td>${equipment.purchaseDate}</td>
                           <td>
-                            <button
-                              class="btn btn-sm btn-warning"
-                              data-bs-toggle="modal"
-                              data-bs-target="#editEquipmentModal${equipment.equipmentId}"
-                            >
-                              <i class="fas fa-edit"></i>
-                            </button>
+                            <div class="btn-group" role="group">
+                              <button
+                                class="btn btn-sm btn-warning"
+                                data-bs-toggle="modal"
+                                data-bs-target="#editEquipmentModal${equipment.equipmentId}"
+                              >
+                                <i class="fas fa-edit"></i>
+                              </button>
+                              <form
+                                action="${pageContext.request.contextPath}/equipment/delete"
+                                method="post"
+                                style="display: inline"
+                              >
+                                <input type="hidden" name="equipmentId" value="${equipment.equipmentId}" />
+                                <button
+                                  type="submit"
+                                  class="btn btn-sm btn-danger"
+                                  onclick="return confirm('Are you sure you want to delete this equipment?');"
+                                >
+                                  <i class="fas fa-trash-alt"></i>
+                                </button>
+                              </form>
+                            </div>
                           </td>
                         </tr>
                       </c:forEach>
