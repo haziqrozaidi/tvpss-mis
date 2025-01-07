@@ -44,12 +44,6 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/resources/dashboard")
-	public ModelAndView dashboard() {
-		ModelAndView modelAndView = new ModelAndView("dashboard");
-		return modelAndView;
-	}
-	
 	@GetMapping("/resources/equipment")
 	public ModelAndView equipment() {
 		ModelAndView modelAndView = new ModelAndView("equipment");
@@ -109,6 +103,40 @@ public class HomeController {
 		return modelAndView;
 	}
 	
+	// Resource Management Module
+	@GetMapping("/equipment/dashboard")
+    public ModelAndView dashboard() {
+        ModelAndView modelAndView = new ModelAndView("equipment/dashboard");
+
+        // Fetch total numbers
+        int totalSchools = schoolDAO.findAll().size();
+        int totalStudios = studioDAO.findAll().size();
+        int totalEquipment = equipmentDAO.findAll().size();
+
+        // Fetch overview data for each school
+        List<School> schools = schoolDAO.findAll();
+        List<SchoolOverview> schoolOverview = new ArrayList<>();
+        for (School school : schools) {
+            int numStudios = studioDAO.findBySchoolId(school.getSchoolId()).size();
+            int numEquipment = 0;
+            List<Studio> studios = studioDAO.findBySchoolId(school.getSchoolId());
+            for (Studio studio : studios) {
+                numEquipment += equipmentDAO.findByStudioId(studio.getStudioId()).size();
+            }
+
+            schoolOverview.add(new SchoolOverview(school.getSchoolName(), numStudios, numEquipment));
+        }
+
+        // Add data to model
+        modelAndView.addObject("totalSchools", totalSchools);
+        modelAndView.addObject("totalStudios", totalStudios);
+        modelAndView.addObject("totalEquipment", totalEquipment);
+        modelAndView.addObject("schoolOverview", schoolOverview);
+
+        return modelAndView;
+    }
+	
+	// Resource Management Module
 	@GetMapping("/equipment/school")
 	public ModelAndView equipmentSchool() {
 	    ModelAndView modelAndView = new ModelAndView("equipment/school");
@@ -128,6 +156,7 @@ public class HomeController {
 	    return modelAndView;
 	}
 	
+	// Resource Management Module
 	@GetMapping("/equipment/studio")
     public ModelAndView equipmentStudio(@RequestParam("schoolId") int schoolId) {
         ModelAndView modelAndView = new ModelAndView("equipment/studio");
@@ -149,6 +178,7 @@ public class HomeController {
         return modelAndView;
     }
 	
+	// Resource Management Module
 	@GetMapping("/equipment/inventory")
     public ModelAndView equipmentInventory(@RequestParam("studioId") int studioId) {
         ModelAndView modelAndView = new ModelAndView("equipment/inventory");
@@ -159,5 +189,30 @@ public class HomeController {
         modelAndView.addObject("studio", studio);
         modelAndView.addObject("equipmentList", equipmentList);
         return modelAndView;
+    }
+	
+	// Resource Management Module
+	public static class SchoolOverview {
+        private String schoolName;
+        private int numStudios;
+        private int numEquipment;
+
+        public SchoolOverview(String schoolName, int numStudios, int numEquipment) {
+            this.schoolName = schoolName;
+            this.numStudios = numStudios;
+            this.numEquipment = numEquipment;
+        }
+
+        public String getSchoolName() {
+            return schoolName;
+        }
+
+        public int getNumStudios() {
+            return numStudios;
+        }
+
+        public int getNumEquipment() {
+            return numEquipment;
+        }
     }
 }

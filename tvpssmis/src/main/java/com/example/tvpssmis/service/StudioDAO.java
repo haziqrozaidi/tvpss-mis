@@ -96,4 +96,13 @@ public class StudioDAO {
                 .setParameter("level", studioLevel)
                 .getResultList();
     }
+    
+    @Transactional
+    public List<Studio> findBySchoolId(int schoolId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.createQuery(
+                "select s from Studio s join s.program p where p.school.schoolId = :schoolId", Studio.class)
+                .setParameter("schoolId", schoolId)
+                .getResultList();
+    }
 }
