@@ -90,7 +90,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                           <td>${equipment.equipmentName}</td>
                           <td>${equipment.equipmentType}</td>
                           <td>${equipment.quantity}</td>
-                          <td>${equipment.status}</td>
+                          <td>
+                            <span class="badge 
+                              <c:choose>
+                                <c:when test="${equipment.status == 'Excellent'}">bg-success</c:when>
+                                <c:when test="${equipment.status == 'Good'}">bg-success</c:when>
+                                <c:when test="${equipment.status == 'Average'}">bg-warning</c:when>
+                                <c:when test="${equipment.status == 'Poor'}">bg-danger</c:when>
+                              </c:choose>">
+                              ${equipment.status}
+                            </span>
+                          </td>
                           <td>${equipment.purchaseDate}</td>
                           <td>
                             <div class="btn-group" role="group">
@@ -205,14 +215,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 </div>
                 <div class="mb-3">
                   <label for="status" class="form-label">Status</label>
-                  <input
-                    type="text"
-                    class="form-control"
+                  <select
+                    class="form-select"
                     id="status"
                     name="status"
-                    value="${equipment.status}"
                     required
-                  />
+                  >
+                    <option value="Excellent" ${equipment.status == 'Excellent' ? 'selected' : ''}>Excellent</option>
+                    <option value="Good" ${equipment.status == 'Good' ? 'selected' : ''}>Good</option>
+                    <option value="Average" ${equipment.status == 'Average' ? 'selected' : ''}>Average</option>
+                    <option value="Poor" ${equipment.status == 'Poor' ? 'selected' : ''}>Poor</option>
+                  </select>
                 </div>
                 <div class="mb-3">
                   <label for="purchaseDate" class="form-label">Purchase Date</label>
@@ -303,13 +316,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               </div>
               <div class="mb-3">
                 <label for="newStatus" class="form-label">Status</label>
-                <input
-                  type="text"
-                  class="form-control"
+                <select
+                  class="form-select"
                   id="newStatus"
                   name="status"
                   required
-                />
+                >
+                  <option value="Excellent">Excellent</option>
+                  <option value="Good">Good</option>
+                  <option value="Average">Average</option>
+                  <option value="Poor">Poor</option>
+                </select>
               </div>
               <div class="mb-3">
                 <label for="newPurchaseDate" class="form-label"
