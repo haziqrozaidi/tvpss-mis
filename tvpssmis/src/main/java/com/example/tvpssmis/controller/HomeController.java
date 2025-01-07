@@ -180,16 +180,32 @@ public class HomeController {
 	
 	// Resource Management Module
 	@GetMapping("/equipment/inventory")
-    public ModelAndView equipmentInventory(@RequestParam("studioId") int studioId) {
-        ModelAndView modelAndView = new ModelAndView("equipment/inventory");
-        
-        Studio studio = studioDAO.findById(studioId);
-        List<Equipment> equipmentList = equipmentDAO.findByStudioId(studioId);
-        
-        modelAndView.addObject("studio", studio);
-        modelAndView.addObject("equipmentList", equipmentList);
-        return modelAndView;
-    }
+	public ModelAndView equipmentInventory(@RequestParam("studioId") int studioId) {
+	    ModelAndView modelAndView = new ModelAndView("equipment/inventory");
+
+	    Studio studio = studioDAO.findById(studioId);
+	    List<Equipment> equipmentList = equipmentDAO.findByStudioId(studioId);
+
+	    // Calculate total equipment types and pieces
+	    int totalEquipmentTypes = (int) equipmentList.stream().map(Equipment::getEquipmentType).distinct().count();
+	    int totalEquipmentPieces = equipmentList.size();
+
+	    // Example condition status calculation (you can adapt this based on actual data)
+	    long goodConditionCount = equipmentList.stream().filter(e -> e.getStatus().equalsIgnoreCase("Good") || e.getStatus().equalsIgnoreCase("Excellent")).count();
+	    String conditionStatus = String.format("%d%% Good/Excellent", (goodConditionCount * 100) / totalEquipmentPieces);
+
+	    // Example last updated date (you can adapt this based on actual data)
+	    String lastUpdated = "15 June 2023"; // This should be dynamically retrieved based on your data
+
+	    modelAndView.addObject("studio", studio);
+	    modelAndView.addObject("equipmentList", equipmentList);
+	    modelAndView.addObject("totalEquipmentTypes", totalEquipmentTypes);
+	    modelAndView.addObject("totalEquipmentPieces", totalEquipmentPieces);
+	    modelAndView.addObject("conditionStatus", conditionStatus);
+	    modelAndView.addObject("lastUpdated", lastUpdated);
+
+	    return modelAndView;
+	}
 	
 	// Resource Management Module
 	public static class SchoolOverview {

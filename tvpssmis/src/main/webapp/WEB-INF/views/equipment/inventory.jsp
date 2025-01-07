@@ -48,6 +48,25 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </button>
           </div>
         </div>
+        
+        <div class="card mb-4">
+          <div class="card-body bg-light">
+            <h5>Resource Summary</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Total Equipment Types:</strong> ${totalEquipmentTypes}</p>
+                <p><strong>Total Equipment Pieces:</strong> ${totalEquipmentPieces}</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Last Updated:</strong> ${lastUpdated}</p>
+                <p>
+                  <strong>Condition Status:</strong>
+                  <span class="badge bg-success">${conditionStatus}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="row">
           <div class="container-fluid">
