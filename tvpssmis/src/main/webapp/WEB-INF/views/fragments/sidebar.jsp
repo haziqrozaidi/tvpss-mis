@@ -141,7 +141,7 @@ pageEncoding="UTF-8"%>
     </li>
     <li>
       <a
-        href="/tvpssmis/resources/equipment"
+        href="/tvpssmis/equipment/dashboard"
         class="nav-link text-white"
       >
         <svg class="bi me-2" width="16" height="16">

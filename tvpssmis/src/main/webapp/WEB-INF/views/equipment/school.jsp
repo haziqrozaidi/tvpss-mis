@@ -26,7 +26,12 @@
       <%@ include file="/WEB-INF/views/fragments/sidebar.jsp" %>
 
       <div class="container-fluid p-4">
-        <h1 class="mb-4">Equipment Management</h1>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="mb-0">Equipment Management</h1>
+          <a href="${pageContext.request.contextPath}/equipment/dashboard" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+          </a>
+        </div>
 
         <div class="row">
           <div class="container-fluid">
@@ -120,7 +125,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const equipmentNavLink = document.querySelector(
-          'a[href="/tvpssmis/resources/equipment"]',
+          'a[href="/tvpssmis/equipment/dashboard"]',
         );
         if (equipmentNavLink) {
           equipmentNavLink.classList.add("active");

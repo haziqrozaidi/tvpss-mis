@@ -361,7 +361,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const equipmentNavLink = document.querySelector(
-          'a[href="/tvpssmis/resources/equipment"]',
+          'a[href="/tvpssmis/equipment/dashboard"]',
         );
         if (equipmentNavLink) {
           equipmentNavLink.classList.add("active");
