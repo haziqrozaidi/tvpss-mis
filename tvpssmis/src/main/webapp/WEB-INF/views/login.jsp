@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,19 +15,37 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-5">
                         <h2 class="text-center mb-4">TVPSS MIS</h2>
-                        <form action="/tvpssmis/resources/dashboard">
+                        
+                        <c:if test="${param.error != null}">
+                            <div class="alert alert-danger" role="alert">
+                                Invalid username or password
+                            </div>
+                        </c:if>
+                        
+                        <c:if test="${param.logout != null}">
+                            <div class="alert alert-success" role="alert">
+                                You have been logged out
+                            </div>
+                        </c:if>
+
+                        <form action="${pageContext.request.contextPath}/login" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                <input type="text" class="form-control" id="username" name="username" required placeholder="Enter username">
                             </div>
+                            
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Enter password">
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="Enter password">
                             </div>
+                            
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </div>
                         </form>
+                        
                         <div class="text-center mt-3">
                             <p class="mb-0">
                                 Don't have an account? 
