@@ -17,23 +17,23 @@ INSERT INTO school (school_name, school_address, contact_number, email) VALUES
 -- Seed data for user table
 INSERT INTO user (role_id, school_id, username, password, full_name, date_of_birth, gender, contact_number, email, address, join_date, status) VALUES
 -- Admins
-(1, 1, 'admin1', 'hashed_password', 'Ahmad Bin Ismail', '1985-03-15', 'Male', '011-10123456', 'ahmad.ismail@moe.edu.my', 'Taman Universiti, Skudai', '2023-01-01', 'Active'),
+(1, 1, 'admin1', '$2a$10$5yCaK/38Gd6kbu86d2.EUeWrcniE/OIXw/FwN0ofgadv72oc4BrvO', 'Ahmad Bin Ismail', '1985-03-15', 'Male', '011-10123456', 'ahmad.ismail@moe.edu.my', 'Taman Universiti, Skudai', '2023-01-01', 'Active'),
 (1, 2, 'admin2', 'hashed_password', 'Siti Aminah Binti Abdullah', '1988-07-22', 'Female', '011-20123456', 'siti.aminah@moe.edu.my', 'Taman Desa, Skudai', '2023-01-01', 'Active'),
 
 -- Teachers
-(2, 1, 'teacher1', 'hashed_password', 'Muhammad Hafiz Bin Omar', '1990-05-12', 'Male', '012-3456789', 'hafiz.omar@moe.edu.my', 'Taman Ungku Tun Aminah, Skudai', '2023-01-15', 'Active'),
+(2, 1, 'teacher1', '$2a$10$pBuf0kcK.xrzhkYnMe2vkuNlXYP/UtduHS1B9q/kc1nT5xRnqI8DC', 'Muhammad Hafiz Bin Omar', '1990-05-12', 'Male', '012-3456789', 'hafiz.omar@moe.edu.my', 'Taman Ungku Tun Aminah, Skudai', '2023-01-15', 'Active'),
 (2, 2, 'teacher2', 'hashed_password', 'Nurul Izzah Binti Razak', '1992-09-28', 'Female', '012-8765432', 'nurul.izzah@moe.edu.my', 'Taman Tebrau, Johor Bahru', '2023-01-15', 'Active'),
 
 -- JPNJ Officers
-(4, NULL, 'jpnj1', 'hashed_password', 'Dr. Zulkifli Bin Rahman', '1975-11-30', 'Male', '019-7775555', 'zulkifli.r@jpnjohor.edu.my', 'Taman Pelangi, Johor Bahru', '2023-02-01', 'Active'),
+(4, NULL, 'jpnj1', '$2a$10$Cbv9Q7R8mab/cBp5eF0ndeFp2RCyTkD3lMxJ3fdlczu5PAEH1oFKm', 'Dr. Zulkifli Bin Rahman', '1975-11-30', 'Male', '019-7775555', 'zulkifli.r@jpnjohor.edu.my', 'Taman Pelangi, Johor Bahru', '2023-02-01', 'Active'),
 (4, NULL, 'jpnj2', 'hashed_password', 'Puan Mastura Binti Hassan', '1978-04-18', 'Female', '019-8885555', 'mastura.h@jpnjohor.edu.my', 'Taman Century, Johor Bahru', '2023-02-01', 'Active'),
 
 -- PPD Officers
-(5, NULL, 'ppd1', 'hashed_password', 'Encik Razali Bin Yusof', '1980-08-25', 'Male', '013-7778888', 'razali.y@ppd.edu.my', 'Taman Perling, Johor Bahru', '2023-02-15', 'Active'),
+(5, NULL, 'ppd1', '$2a$10$ngJJJrjlKLIacKJEzwe/y.wWDNRqvXzoBn6qt4Sja6GWbTYQra186', 'Encik Razali Bin Yusof', '1980-08-25', 'Male', '013-7778888', 'razali.y@ppd.edu.my', 'Taman Perling, Johor Bahru', '2023-02-15', 'Active'),
 (5, NULL, 'ppd2', 'hashed_password', 'Puan Faridah Binti Salleh', '1982-12-03', 'Female', '013-8889999', 'faridah.s@ppd.edu.my', 'Taman Rinting, Pasir Gudang', '2023-02-15', 'Active'),
 
 -- Students
-(3, 1, 'student1', 'hashed_password', 'Amir Danial Bin Khairul', '2007-06-20', 'Male', '011-11223344', 'amir.danial@student.moe.edu.my', 'Taman Selesa Jaya, Skudai', '2023-03-01', 'Active'),
+(3, 1, 'student1', '$2a$10$JW82lBKID7n8UW.Y8nVeOO80kwLnE4Tx1Q.XO9tpyw7e0f3QKLKzS', 'Amir Danial Bin Khairul', '2007-06-20', 'Male', '011-11223344', 'amir.danial@student.moe.edu.my', 'Taman Selesa Jaya, Skudai', '2023-03-01', 'Active'),
 (3, 1, 'student2', 'hashed_password', 'Nur Aliya Binti Mazlan', '2007-08-15', 'Female', '011-22334455', 'nur.aliya@student.moe.edu.my', 'Taman Mutiara Rini, Skudai', '2023-03-01', 'Active'),
 (3, 2, 'student3', 'hashed_password', 'Muhammad Irfan Bin Azmi', '2008-02-10', 'Male', '011-33445566', 'irfan.azmi@student.moe.edu.my', 'Taman Universiti, Skudai', '2023-03-01', 'Active'),
 (3, 2, 'student4', 'hashed_password', 'Nor Syafiqah Binti Rosli', '2008-04-25', 'Female', '011-44556677', 'syafiqah.rosli@student.moe.edu.my', 'Taman Skudai Baru, Skudai', '2023-03-01', 'Active');
