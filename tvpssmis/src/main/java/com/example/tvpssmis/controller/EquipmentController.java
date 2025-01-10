@@ -2,7 +2,7 @@
 package com.example.tvpssmis.controller;
 
 import com.example.tvpssmis.entity.Equipment;
-import com.example.tvpssmis.service.EquipmentDAO;
+import com.example.tvpssmis.service.equipment.EquipmentDAO;
 
 import java.sql.Date;
 

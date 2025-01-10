@@ -18,10 +18,10 @@ import com.example.tvpssmis.entity.Equipment;
 import com.example.tvpssmis.entity.Program;
 import com.example.tvpssmis.entity.School;
 import com.example.tvpssmis.entity.Studio;
-import com.example.tvpssmis.service.EquipmentDAO;
-import com.example.tvpssmis.service.ProgramDAO;
-import com.example.tvpssmis.service.SchoolDAO;
-import com.example.tvpssmis.service.StudioDAO;
+import com.example.tvpssmis.service.equipment.EquipmentDAO;
+import com.example.tvpssmis.service.equipment.ProgramDAO;
+import com.example.tvpssmis.service.equipment.SchoolDAO;
+import com.example.tvpssmis.service.equipment.StudioDAO;
 
 @Controller
 @RequestMapping("/")

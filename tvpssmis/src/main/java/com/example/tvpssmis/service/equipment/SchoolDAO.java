@@ -1,4 +1,4 @@
-package com.example.tvpssmis.service;
+package com.example.tvpssmis.service.equipment;
 
 import com.example.tvpssmis.entity.School;
 import org.hibernate.Session;

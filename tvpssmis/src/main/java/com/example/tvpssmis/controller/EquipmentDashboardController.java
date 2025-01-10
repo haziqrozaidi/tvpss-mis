@@ -2,9 +2,10 @@ package com.example.tvpssmis.controller;
 
 import com.example.tvpssmis.entity.School;
 import com.example.tvpssmis.entity.Studio;
-import com.example.tvpssmis.service.SchoolDAO;
-import com.example.tvpssmis.service.StudioDAO;
-import com.example.tvpssmis.service.EquipmentDAO;
+import com.example.tvpssmis.service.equipment.EquipmentDAO;
+import com.example.tvpssmis.service.equipment.SchoolDAO;
+import com.example.tvpssmis.service.equipment.StudioDAO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
