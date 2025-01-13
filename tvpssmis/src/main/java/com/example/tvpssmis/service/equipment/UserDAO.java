@@ -99,4 +99,12 @@ public class UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         return currentSession.get(School.class, schoolId);
     }
+    
+    @Transactional
+    public User findByUsername(String username) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.createQuery("from User where username = :username", User.class)
+                .setParameter("username", username)
+                .uniqueResult();
+    }
 }
