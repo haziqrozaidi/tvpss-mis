@@ -32,14 +32,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <h1 class="mb-0">Studio Equipment Management</h1>
             <p class="text-muted mb-0">School: ${school.schoolName}</p>
           </div>
-          <div>
-            <a
-              href="${pageContext.request.contextPath}/equipment/school"
-              class="btn btn-secondary"
-            >
-              <i class="fas fa-arrow-left"></i> Back to Schools
-            </a>
-          </div>
+          <c:if test="${role.roleName != 'Teacher'}">
+            <div>
+              <a
+                href="${pageContext.request.contextPath}/equipment/school"
+                class="btn btn-secondary"
+              >
+                <i class="fas fa-arrow-left"></i> Back to Schools
+              </a>
+            </div>
+          </c:if>
         </div>
 
         <div class="row">

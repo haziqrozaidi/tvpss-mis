@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
   <symbol id="bootstrap" viewBox="0 0 118 94">
     <title>Bootstrap</title>
@@ -139,17 +140,30 @@ pageEncoding="UTF-8"%>
         Dashboard
       </a>
     </li>
-    <li>
-      <a
-        href="/tvpssmis/equipment/dashboard"
-        class="nav-link text-white"
-      >
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#table" />
-        </svg>
-        Equipment Inventory
-      </a>
-    </li>
+    <c:if test="${role.roleName != 'Student'}">
+      <li>
+        <a
+          href="<c:choose>
+                  <c:when test="${role.roleName == 'Admin' || role.roleName == 'JPNJ' || role.roleName == 'PPD'}">
+                    /tvpssmis/equipment/dashboard
+                  </c:when>
+                  <c:when test="${role.roleName == 'Teacher'}">
+                    /tvpssmis/equipment/studio?schoolId=${user.school.schoolId}
+                  </c:when>
+                  <c:otherwise>
+                    #
+                  </c:otherwise>
+                </c:choose>"
+          class="nav-link text-white"
+        >
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#table" />
+          </svg>
+          Equipment Inventory
+        </a>
+      </li>
+    </c:if>
+    
     <li>
       <a href="/tvpssmis/resources/performance" class="nav-link text-white">
         <svg class="bi me-2" width="16" height="16">
@@ -278,7 +292,7 @@ pageEncoding="UTF-8"%>
         height="32"
         class="rounded-circle me-2"
       />
-      <strong>Ahmad</strong>
+      <strong>${role.roleName}</strong>
     </a>
     <ul
       class="dropdown-menu dropdown-menu-dark text-small shadow"
