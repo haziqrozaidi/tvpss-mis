@@ -76,6 +76,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   <th>School Name</th>
                   <th>Number of Studios</th>
                   <th>Number of Equipment Items</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -86,6 +87,20 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <td>${school.schoolName}</td>
                         <td>${school.numStudios}</td>
                         <td>${school.numEquipment}</td>
+                        <td>
+                        <!-- Status logic based on equipment count -->
+                        <c:choose>
+                          <c:when test="${school.numEquipment < 5}">
+                            <span class="badge bg-danger">Needs Support</span>
+                          </c:when>
+                          <c:when test="${school.numEquipment < 10}">
+                            <span class="badge bg-warning">Limited Equipment</span>
+                          </c:when>
+                          <c:otherwise>
+                            <span class="badge bg-success">Well Equipped</span>
+                          </c:otherwise>
+                        </c:choose>
+                      </td>
                       </tr>
                     </c:forEach>
                   </c:when>

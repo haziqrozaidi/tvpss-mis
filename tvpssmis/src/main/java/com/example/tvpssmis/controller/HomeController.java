@@ -18,6 +18,8 @@ import com.example.tvpssmis.entity.Equipment;
 import com.example.tvpssmis.entity.Program;
 import com.example.tvpssmis.entity.School;
 import com.example.tvpssmis.entity.Studio;
+
+//Resource Management Module
 import com.example.tvpssmis.service.equipment.EquipmentDAO;
 import com.example.tvpssmis.service.equipment.ProgramDAO;
 import com.example.tvpssmis.service.equipment.SchoolDAO;
@@ -26,15 +28,19 @@ import com.example.tvpssmis.service.equipment.StudioDAO;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+	// Resource Management Module
 	@Autowired
     private SchoolDAO schoolDAO;
 	
+	// Resource Management Module
 	@Autowired
 	private ProgramDAO programDAO;
 	
+	// Resource Management Module
 	@Autowired
     private StudioDAO studioDAO;
 	
+	// Resource Management Module
 	@Autowired
     private EquipmentDAO equipmentDAO;
 	
