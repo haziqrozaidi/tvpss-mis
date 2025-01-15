@@ -106,3 +106,22 @@ CREATE TABLE equipment (
     purchase_date DATE,
     FOREIGN KEY (studio_id) REFERENCES studio(studio_id)
 );
+
+-- Create equipment_request table
+CREATE TABLE equipment_request (
+    request_id INT PRIMARY KEY AUTO_INCREMENT,
+    studio_id INT,
+    equipment_name VARCHAR(100) NOT NULL,
+    equipment_type VARCHAR(50),
+    quantity INT DEFAULT 1,
+    price DECIMAL(10, 2),
+    link VARCHAR(255),
+    request_reason TEXT,
+    status VARCHAR(20) DEFAULT 'Pending',
+    request_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    approval_date DATETIME,
+    approved_by INT,
+    remarks TEXT,
+    FOREIGN KEY (studio_id) REFERENCES studio(studio_id),
+    FOREIGN KEY (approved_by) REFERENCES user(user_id)
+);

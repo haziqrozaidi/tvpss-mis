@@ -87,3 +87,30 @@ INSERT INTO crew (studio_id, user_id, role, join_date, status) VALUES
 (1, 10, 'Sound Engineer', '2023-03-15', 'Active'),
 (2, 11, 'Video Editor', '2023-03-20', 'Active'),
 (2, 12, 'Production Assistant', '2023-03-20', 'Active');
+
+-- Seed data for equipment_request table
+INSERT INTO equipment_request (studio_id, equipment_name, equipment_type, quantity, price, link, request_reason, status, request_date, approval_date, approved_by, remarks) VALUES
+-- Studio 1 Requests
+(1, 'Canon EOS R5', 'Camera', 1, 3899.00, 'https://example.com/canon-eos-r5', 'Need an additional camera for high-quality shoots', 'Pending', '2025-01-10 10:00:00', NULL, NULL, NULL),
+(1, 'Sony A7S III', 'Camera', 1, 3499.00, 'https://example.com/sony-a7s-iii', 'Upgrade to better camera', 'Rejected', '2025-01-05 09:00:00', '2025-01-12 14:00:00', 5, 'Budget constraints'),
+(1, 'DJI Ronin-S', 'Stabilizer', 1, 749.00, 'https://example.com/dji-ronin-s', 'Need a stabilizer for smooth shots', 'Approved', '2025-01-01 08:00:00', '2025-01-07 11:00:00', 5, 'Approved for purchase'),
+
+-- Studio 2 Requests
+(2, 'Rode NTG5', 'Microphone', 2, 499.00, 'https://example.com/rode-ntg5', 'Need high-quality microphones for recording', 'Pending', '2025-01-10 10:30:00', NULL, NULL, NULL),
+(2, 'Canon EOS M50', 'Camera', 2, 649.00, 'https://example.com/canon-eos-m50', 'Upgrade for better video quality', 'Rejected', '2025-01-05 09:30:00', '2025-01-12 14:30:00', 6, 'Not needed at the moment'),
+(2, 'Zoom H5', 'Audio Recorder', 1, 279.00, 'https://example.com/zoom-h5', 'Portable audio recorder for fieldwork', 'Approved', '2025-01-01 08:30:00', '2025-01-07 11:30:00', 6, 'Approved for purchase'),
+
+-- Studio 3 Requests
+(3, 'Aputure Light Dome II', 'Lighting', 1, 149.00, 'https://example.com/aputure-light-dome-ii', 'Need better lighting for indoor shoots', 'Pending', '2025-01-10 11:00:00', NULL, NULL, NULL),
+(3, 'Panasonic GH5S', 'Camera', 1, 1699.00, 'https://example.com/panasonic-gh5s', 'Upgrade to a better camera', 'Rejected', '2025-01-05 10:00:00', '2025-01-12 15:00:00', 5, 'Budget constraints'),
+(3, 'Rode Wireless GO II', 'Microphone', 1, 299.00, 'https://example.com/rode-wireless-go-ii', 'Need wireless microphones for recording', 'Approved', '2025-01-01 09:00:00', '2025-01-07 12:00:00', 5, 'Approved for purchase'),
+
+-- Studio 4 Requests
+(4, 'Sony FX3', 'Camera', 1, 3899.00, 'https://example.com/sony-fx3', 'Need a high-quality camera for shoots', 'Pending', '2025-01-10 11:30:00', NULL, NULL, NULL),
+(4, 'Canon C70', 'Camera', 1, 5499.00, 'https://example.com/canon-c70', 'Upgrade to a better camera', 'Rejected', '2025-01-05 10:30:00', '2025-01-12 15:30:00', 6, 'Too expensive'),
+(4, 'Rode NT1', 'Microphone', 1, 269.00, 'https://example.com/rode-nt1', 'Need a high-quality microphone for recording', 'Approved', '2025-01-01 09:30:00', '2025-01-07 12:30:00', 6, 'Approved for purchase'),
+
+-- Studio 5 Requests
+(5, 'DJI Mavic Air 2', 'Drone', 1, 799.00, 'https://example.com/dji-mavic-air-2', 'Need a drone for aerial shots', 'Pending', '2025-01-10 12:00:00', NULL, NULL, NULL),
+(5, 'Canon XF405', 'Camera', 1, 2999.00, 'https://example.com/canon-xf405', 'Upgrade to a better camera', 'Rejected', '2025-01-05 11:00:00', '2025-01-12 16:00:00', 5, 'Not needed at the moment'),
+(5, 'Shure SM7B', 'Microphone', 1, 399.00, 'https://example.com/shure-sm7b', 'Need a high-quality microphone for recording', 'Approved', '2025-01-01 10:00:00', '2025-01-07 13:00:00', 5, 'Approved for purchase');
