@@ -125,7 +125,7 @@ public class EquipmentRequestDAO {
     }
 
     @Transactional
-    public List<EquipmentRequest> findBySchool(int schoolId) {
+    public List<EquipmentRequest> findBySchoolId(int schoolId) {
         Session currentSession = sessionFactory.getCurrentSession();
         return currentSession.createQuery(
                 "select er from EquipmentRequest er join er.studio s join s.program p where p.school.schoolId = :schoolId",

@@ -18,7 +18,7 @@ public class User implements Serializable {
     private Role role;
 
     @ManyToOne
-    @JoinColumn(name = "school_id", nullable = false)
+    @JoinColumn(name = "school_id", nullable = true)
     private School school;
 
     @Column(name = "username", nullable = false, length = 50, unique = true)
