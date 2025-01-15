@@ -112,7 +112,7 @@ pageEncoding="UTF-8"%>
     </c:when>
     <c:when test="${user.role.roleName == 'Student'}">
         <li class="nav-item">
-            <a href="${pageContext.request.contextPath}/dashboard/user" class="nav-link text-white">
+            <a href="${pageContext.request.contextPath}/application/dashboard" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#speedometer2" />
                 </svg>Dashboard
@@ -161,7 +161,7 @@ pageEncoding="UTF-8"%>
         </svg> Studio Information
 		</a></li>
 		<c:if
-			test="${role.roleName == 'Admin' || role.roleName == 'Teacher' || role.roleName == 'Student'}">
+			test="${role.roleName == 'Admin' || role.roleName == 'Teacher'}">
 			<li><a href="/tvpssmis/studios/register"
 				class="nav-link text-white"> <svg class="bi me-2" width="16"
 						height="16">
@@ -185,25 +185,25 @@ pageEncoding="UTF-8"%>
           <use xlink:href="#chevron-right" />
         </svg> Content
 		</a></li>
-		<li><a href="/tvpssmis/resources/uploadActivityContent"
+		<li><a href="#"
 			class="nav-link text-white"> <svg class="bi me-2"
 					width="16" height="16">
           <use xlink:href="#grid" />
         </svg> Upload Content
 		</a></li>
-		<li><a href="/tvpssmis/resources/upload"
+		<li><a href="#"
 			class="nav-link text-white"> <svg class="bi me-2" width="16"
 					height="16">
           <use xlink:href="#table" />
         </svg> Upload Document
 		</a></li>
-		<li class="nav-item"><a href="/tvpssmis/content/manage"
+		<li class="nav-item"><a href="#"
 			class="nav-link text-white" aria-current="page"> <svg
 					class="bi me-2" width="16" height="16">
           <use xlink:href="#collection" />
         </svg> Manage Content
 		</a></li>
-		<li class="nav-item"><a href="/tvpssmis/content/update"
+		<li class="nav-item"><a href="#"
 			class="nav-link text-white" aria-current="page"> <svg
 					class="bi me-2" width="16" height="16">
           <use xlink:href="#tools" />
@@ -222,7 +222,7 @@ pageEncoding="UTF-8"%>
           <use xlink:href="#grid" />
         </svg> Manage Application
 		</a></li>
-		<li class="nav-item"><a href="/tvpssmis/student/form"
+		<li class="nav-item"><a href="/tvpssmis/students/form"
 			class="nav-link text-white" aria-current="page"> <svg
 					class="bi me-2" width="16" height="16">
           <use xlink:href="#people-circle" />

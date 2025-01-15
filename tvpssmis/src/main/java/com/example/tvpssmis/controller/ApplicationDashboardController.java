@@ -10,16 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.tvpssmis.entity.StudentApplication;
-import com.example.tvpssmis.service.application.ApplicationService;
-
+import com.example.tvpssmis.service.ApplicationService;
 @Controller
-@RequestMapping("/dashboard")
+@RequestMapping("/application")
 public class ApplicationDashboardController {
     
     @Autowired
     private ApplicationService applicationDAO;
     
-    @GetMapping
+    @GetMapping("/dashboard")
     public String showDashboard(Model model) {
         long totalApplication = applicationDAO.countTotalApplications();
         long acceptedApplications = applicationDAO.countAcceptedApplications();
@@ -39,7 +38,7 @@ public class ApplicationDashboardController {
         model.addAttribute("rejectedApplications", rejectedApplications);
         model.addAttribute("applicationOverview", applicationOverview);
         
-        return "dashboard";
+        return "studentApplication/dashboard";
     }
     
     public static class ApplicationOverview {

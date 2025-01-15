@@ -28,7 +28,7 @@
       <div class="container-fluid p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h1 class="mb-0">Application Management</h1>
-          <a href="${pageContext.request.contextPath}/studentApplication/dashboard" class="btn btn-secondary">
+          <a href="${pageContext.request.contextPath}/application/dashboard" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Back to Dashboard
           </a>
         </div>

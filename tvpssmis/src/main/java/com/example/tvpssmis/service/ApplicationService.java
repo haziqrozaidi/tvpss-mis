@@ -1,4 +1,4 @@
-package com.example.tvpssmis.service.application;
+package com.example.tvpssmis.service;
 
 import java.util.List;
 
@@ -6,9 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Service;
 
 import com.example.tvpssmis.entity.StudentApplication;
 
+@Service
 public class ApplicationService {
     private SessionFactory sessionFactory;
 

@@ -16,13 +16,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/WEB-INF/views/css/sidebars.css" />
+    <style>
+      <%@include file="/WEB-INF/views/css/sidebars.css"%>
+    </style>
   </head>
   <body>
-    <div class="d-flex" style="min-height: 100vh">
-      <!-- Sidebar Include -->
-      <%@ include file="/WEB-INF/views/fragments/sidebar.jsp" %>
+	<div class="d-flex" style="min-height: 100vh">
+		<!-- Sidebar Include -->
+		<%@ include file="/WEB-INF/views/fragments/sidebar.jsp"%>
 
       <div class="container-fluid p-4">
         <h1 class="mb-4">Application Dashboard</h1>
@@ -62,7 +63,7 @@
 
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="mb-0">Application Summary</h2>
-          <a href="${pageContext.request.contextPath}/studentApplication/application" class="btn btn-secondary">
+          <a href="${pageContext.request.contextPath}/students/application" class="btn btn-secondary">
             <i class="fas fa-arrow-right"></i> Manage Applications
           </a>
         </div>

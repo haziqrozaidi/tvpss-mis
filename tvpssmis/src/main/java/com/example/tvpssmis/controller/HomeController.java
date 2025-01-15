@@ -85,15 +85,15 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/student/application")
+	@GetMapping("/students/application")
 	public ModelAndView studentApplication() {
-		ModelAndView modelAndView = new ModelAndView("ManageApplication");
+		ModelAndView modelAndView = new ModelAndView("studentApplication/application");
 		return modelAndView;
 	}
 	
 	@GetMapping("/students/form")
 	public ModelAndView studentForm() {
-		ModelAndView modelAndView = new ModelAndView("StudentForm");
+		ModelAndView modelAndView = new ModelAndView("studentApplication/StudentForm");
 		return modelAndView;
 	}
 	
