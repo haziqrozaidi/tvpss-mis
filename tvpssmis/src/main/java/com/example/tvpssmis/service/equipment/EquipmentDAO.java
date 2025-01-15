@@ -77,4 +77,19 @@ public class EquipmentDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         return currentSession.get(Studio.class, studioId);
     }
+    @Transactional
+    public List<Equipment> findBySchoolId(int schoolId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return currentSession.createQuery(
+            "from Equipment where studio.program.school.schoolId = :schoolId", Equipment.class)
+            .setParameter("schoolId", schoolId)
+            .getResultList();
+    }
+    @Transactional
+    public long countEquipment() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return (long) currentSession.createQuery("select count(e) from Equipment e").uniqueResult();
+    }
+
+
 }

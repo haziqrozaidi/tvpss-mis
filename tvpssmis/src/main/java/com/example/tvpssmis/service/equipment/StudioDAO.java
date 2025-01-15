@@ -105,4 +105,10 @@ public class StudioDAO {
                 .setParameter("schoolId", schoolId)
                 .getResultList();
     }
+    @Transactional
+    public long countStudios() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return (long) currentSession.createQuery("select count(s) from Studio s").uniqueResult();
+    }
+
 }

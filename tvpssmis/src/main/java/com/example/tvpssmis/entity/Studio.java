@@ -3,6 +3,7 @@ package com.example.tvpssmis.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "studio")
@@ -118,4 +119,26 @@ public class Studio implements Serializable {
                 ", status='" + status + '\'' +
                 '}';
     }
+
+	@OneToMany(mappedBy = "studio", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Crew> crews;
+	@OneToMany(mappedBy = "studio", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Equipment> equipmentList;
+
+	public List<Crew> getCrews() {
+		return crews;
+	}
+
+	public void setCrews(List<Crew> crews) {
+		this.crews = crews;
+	}
+
+	public List<Equipment> getEquipmentList() {
+		return equipmentList;
+	}
+
+	public void setEquipmentList(List<Equipment> equipmentList) {
+		this.equipmentList = equipmentList;
+	}
+
 }
