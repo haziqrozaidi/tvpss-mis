@@ -47,13 +47,22 @@ public class EquipmentRequestController {
     }
 
     // Show requests for a specific school
-    @GetMapping("/school/{schoolId}")
-    public String showSchoolRequests(@PathVariable int schoolId, Model model) {
-        List<EquipmentRequest> requests = equipmentRequestDAO.findBySchoolId(schoolId);
-        model.addAttribute("equipmentRequests", requests);
-        model.addAttribute("schools", schoolDAO.findAll());
-        model.addAttribute("selectedSchool", schoolDAO.findById(schoolId));
-        return "equipment/requests";
+    @GetMapping("/school")
+    public String showSchoolRequests(Model model, HttpSession session) {
+        User currentUser = (User) session.getAttribute("user");
+        
+        if (currentUser != null && currentUser.getSchool() != null) {
+            int schoolId = currentUser.getSchool().getSchoolId();
+            List<EquipmentRequest> requests = equipmentRequestDAO.findBySchoolId(schoolId);
+            List<Studio> studios = studioDAO.findBySchoolId(schoolId); // Add this line
+            
+            model.addAttribute("equipmentRequests", requests);
+            model.addAttribute("studios", studios); // Add this line
+            model.addAttribute("selectedSchool", currentUser.getSchool());
+            return "equipment/school_requests";
+        }
+        
+        return "redirect:/dashboard";
     }
 
     // Create new request
@@ -73,7 +82,7 @@ public class EquipmentRequestController {
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("errorMessage", "Error creating equipment request: " + e.getMessage());
         }
-        return "redirect:/equipment/requests";
+        return "redirect:/equipment/requests/school";
     }
     
     @PostMapping("/update")

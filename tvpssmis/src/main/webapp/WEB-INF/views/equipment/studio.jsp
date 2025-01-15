@@ -32,16 +32,18 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <h1 class="mb-0">Studio Equipment Management</h1>
             <p class="text-muted mb-0">School: ${school.schoolName}</p>
           </div>
-          <c:if test="${role.roleName != 'Teacher'}">
-            <div>
-              <a
-                href="${pageContext.request.contextPath}/equipment/school"
-                class="btn btn-secondary"
-              >
-                <i class="fas fa-arrow-left"></i> Back to Schools
+          <div class="d-flex gap-2"> <!-- Added gap-2 for spacing between buttons -->
+              <a href="${pageContext.request.contextPath}/equipment/requests/school" 
+                 class="btn btn-secondary">
+                  <i class="fas fa-arrow-right"></i> View Equipment Requests
               </a>
-            </div>
-          </c:if>
+              <c:if test="${role.roleName != 'Teacher'}">
+                  <a href="${pageContext.request.contextPath}/equipment/school" 
+                     class="btn btn-secondary">
+                      <i class="fas fa-arrow-left"></i> Back to Schools
+                  </a>
+              </c:if>
+          </div>
         </div>
 
         <div class="row">
