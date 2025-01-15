@@ -96,11 +96,7 @@ pageEncoding="UTF-8"%>
           <use xlink:href="#chevron-right" />
         </svg> Resource Management
 		</a></li>
-		<li><a href="/tvpssmis/dashboard" class="nav-link text-white">
-				<svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#speedometer2" />
-        </svg> Dashboard
-		</a></li><c:choose>
+    <c:choose>
     <c:when test="${user.role.roleName == 'Teacher'}">
         <li class="nav-item">
             <a href="${pageContext.request.contextPath}/dashboard/user" class="nav-link text-white">
@@ -149,12 +145,6 @@ pageEncoding="UTF-8"%>
 			</a></li>
 		</c:if>
 
-		<li><a href="/tvpssmis/resources/performance"
-			class="nav-link text-white"> <svg class="bi me-2" width="16"
-					height="16">
-          <use xlink:href="#grid" />
-        </svg> Performance Metrics
-		</a></li>
 		<li><a href="/tvpssmis/studios" class="nav-link text-white">
 				<svg class="bi me-2" width="16" height="16">
           <use xlink:href="#people-circle" />
