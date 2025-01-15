@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.tvpssmis.entity.StudentApplication;
-import com.example.tvpssmis.service.application.ApplicationService;
+import com.example.tvpssmis.service.ApplicationService;
 
 @Controller
-@RequestMapping("/equipment")
+@RequestMapping("/application")
 public class ApplicationController {
     
     @Autowired
