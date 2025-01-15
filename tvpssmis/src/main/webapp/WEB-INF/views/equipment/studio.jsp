@@ -109,10 +109,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const equipmentNavLink = document.querySelector(
-          'a[href="/tvpssmis/equipment/dashboard"]',
+        	'a[href*="/tvpssmis/equipment/studio"]',
         );
         if (equipmentNavLink) {
-          equipmentNavLink.classList.add("active");
+          	equipmentNavLink.classList.add("active");
         }
       });
     </script>

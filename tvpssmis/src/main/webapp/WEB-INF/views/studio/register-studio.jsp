@@ -303,5 +303,15 @@
         }
       });
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const equipmentNavLink = document.querySelector(
+          'a[href*="studios/register"]',
+        );
+        if (equipmentNavLink) {
+          equipmentNavLink.classList.add("active");
+        }
+      });
+    </script>
   </body>
 </html>

@@ -32,7 +32,15 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         System.out.println("User: " + user);
         System.out.println("Role: " + user.getRole());
 
-        // Redirect to the default success URL
-        response.sendRedirect(request.getContextPath() + "/dashboard");
+	    // Redirect based on role
+        String redirectUrl;
+        if (user.getRole().getRoleName().equals("Teacher") || 
+            user.getRole().getRoleName().equals("Student")) {
+            redirectUrl = request.getContextPath() + "/dashboard/user";
+        } else {
+            redirectUrl = request.getContextPath() + "/equipment/dashboard";
+        }
+
+        response.sendRedirect(redirectUrl);
     }
 }

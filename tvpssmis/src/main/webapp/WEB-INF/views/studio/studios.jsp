@@ -161,10 +161,10 @@
 	<script>
       document.addEventListener("DOMContentLoaded", function () {
         const equipmentNavLink = document.querySelector(
-          'a[href="/tvpssmis/equipment/dashboard"]',
+    		'a[href*="studios"]',
         );
         if (equipmentNavLink) {
-          equipmentNavLink.classList.add("active");
+            equipmentNavLink.classList.add("active");
         }
       });
     </script>
