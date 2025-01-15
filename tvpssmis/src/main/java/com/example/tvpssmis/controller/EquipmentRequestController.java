@@ -75,81 +75,42 @@ public class EquipmentRequestController {
         }
         return "redirect:/equipment/requests";
     }
-
-    // Update existing request
-    @PostMapping("/update/{id}")
-    public String updateRequest(@PathVariable int id,
-                              @ModelAttribute EquipmentRequest request,
+    
+    @PostMapping("/update")
+    public String updateRequest(@RequestParam("requestId") int requestId,
+                              @RequestParam("status") String status,
+                              @RequestParam("remarks") String remarks,
+                              HttpSession session,
                               RedirectAttributes redirectAttributes) {
         try {
-            equipmentRequestDAO.update(id, request);
-            redirectAttributes.addFlashAttribute("successMessage", "Equipment request updated successfully");
+            EquipmentRequest request = equipmentRequestDAO.findById(requestId);
+            if (request != null) {
+                // Get current user from session
+                User currentUser = (User) session.getAttribute("user"); // Changed from userId to user
+                if (currentUser == null) {
+                    redirectAttributes.addFlashAttribute("errorMessage", "User session not found");
+                    return "redirect:/equipment/requests";
+                }
+                
+                // Update request
+                request.setStatus(status);
+                request.setRemarks(remarks);
+                request.setApprovedBy(currentUser); // Use the user object directly
+                request.setApprovalDate(new Date());
+                
+                equipmentRequestDAO.save(request);
+                
+                String action = status.equals("Approved") ? "approved" : "rejected";
+                redirectAttributes.addFlashAttribute("successMessage", 
+                    "Equipment request has been " + action + " successfully");
+            } else {
+                redirectAttributes.addFlashAttribute("errorMessage", "Request not found");
+            }
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Error updating equipment request: " + e.getMessage());
+            redirectAttributes.addFlashAttribute("errorMessage", 
+                "Error updating request: " + e.getMessage());
         }
         return "redirect:/equipment/requests";
-    }
-
-    // Approve request
-    @PostMapping("/approve/{id}")
-    @ResponseBody
-    public ResponseEntity<?> approveRequest(@PathVariable int id,
-                                          @RequestParam("remarks") String remarks,
-                                          HttpSession session) {
-        try {
-            EquipmentRequest request = equipmentRequestDAO.findById(id);
-            if (request != null) {
-                // Get current user from session
-                Integer currentUserId = (Integer) session.getAttribute("userId");
-                User approver = userDAO.findById(currentUserId);
-                
-                request.setStatus("Approved");
-                request.setApprovalDate(new Date());
-                request.setApprovedBy(approver);
-                request.setRemarks(remarks);
-                
-                equipmentRequestDAO.update(id, request);
-                
-                Map<String, Object> response = new HashMap<>();
-                response.put("success", true);
-                response.put("message", "Request approved successfully");
-                return ResponseEntity.ok(response);
-            }
-            return ResponseEntity.badRequest().body("Request not found");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error approving request: " + e.getMessage());
-        }
-    }
-
-    // Reject request
-    @PostMapping("/reject/{id}")
-    @ResponseBody
-    public ResponseEntity<?> rejectRequest(@PathVariable int id,
-                                         @RequestParam("remarks") String remarks,
-                                         HttpSession session) {
-        try {
-            EquipmentRequest request = equipmentRequestDAO.findById(id);
-            if (request != null) {
-                // Get current user from session
-                Integer currentUserId = (Integer) session.getAttribute("userId");
-                User approver = userDAO.findById(currentUserId);
-                
-                request.setStatus("Rejected");
-                request.setApprovalDate(new Date());
-                request.setApprovedBy(approver);
-                request.setRemarks(remarks);
-                
-                equipmentRequestDAO.update(id, request);
-                
-                Map<String, Object> response = new HashMap<>();
-                response.put("success", true);
-                response.put("message", "Request rejected successfully");
-                return ResponseEntity.ok(response);
-            }
-            return ResponseEntity.badRequest().body("Request not found");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error rejecting request: " + e.getMessage());
-        }
     }
 
     // Get studios for a school (for dynamic dropdown in forms)

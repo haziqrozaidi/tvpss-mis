@@ -65,10 +65,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center mb-4">
               <h2 class="mb-0">Schools Overview</h2>
-              <!-- Button to navigate to equipment/school -->
-              <a href="${pageContext.request.contextPath}/equipment/school" class="btn btn-secondary">
-                <i class="fas fa-arrow-right"></i> View Equipment by School
-              </a>
+              <!-- Buttons container -->
+              <div>
+                <a href="${pageContext.request.contextPath}/equipment/school" class="btn btn-secondary me-2">
+                  <i class="fas fa-arrow-right"></i> View Equipment by School
+                </a>
+                <a href="${pageContext.request.contextPath}/equipment/requests" class="btn btn-secondary">
+                  <i class="fas fa-arrow-right"></i> View Equipment Requests
+                </a>
+              </div>
             </div>
             <table class="table table-striped table-hover">
               <thead class="table-dark">
