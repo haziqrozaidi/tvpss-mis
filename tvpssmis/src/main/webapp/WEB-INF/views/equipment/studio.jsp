@@ -33,10 +33,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <p class="text-muted mb-0">School: ${school.schoolName}</p>
           </div>
           <div class="d-flex gap-2"> <!-- Added gap-2 for spacing between buttons -->
-              <a href="${pageContext.request.contextPath}/equipment/requests/school" 
-                 class="btn btn-secondary">
-                  <i class="fas fa-arrow-right"></i> View Equipment Requests
-              </a>
+              <c:if test="${role.roleName == 'Teacher'}">
+                <a href="${pageContext.request.contextPath}/equipment/requests/school" 
+                   class="btn btn-secondary">
+                    <i class="fas fa-arrow-right"></i> View Equipment Requests
+                </a>
+              </c:if>
               <c:if test="${role.roleName != 'Teacher'}">
                   <a href="${pageContext.request.contextPath}/equipment/school" 
                      class="btn btn-secondary">
@@ -113,6 +115,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         );
         if (equipmentNavLink) {
           	equipmentNavLink.classList.add("active");
+        }
+        
+        const element = document.querySelector(
+        	'a[href*="equipment/dashboard"]',
+        );
+        if (element) {
+        	element.classList.add("active");
         }
       });
     </script>

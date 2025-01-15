@@ -270,10 +270,12 @@
     <script>
         // Set active nav item
         document.addEventListener("DOMContentLoaded", function () {
-            const equipmentNavLink = document.querySelector('a[href="/tvpssmis/equipment/dashboard"]');
-            if (equipmentNavLink) {
-                equipmentNavLink.classList.add("active");
-            }
+          const equipmentNavLink = document.querySelector(
+          		'a[href*="/tvpssmis/equipment/studio"]',
+          );
+          if (equipmentNavLink) {
+            	equipmentNavLink.classList.add("active");
+          }
         });
     </script>
 </body>
