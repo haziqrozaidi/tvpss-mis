@@ -78,4 +78,10 @@ public class ProgramDAO {
                 .setParameter("status", status)
                 .getResultList();
     }
+    @Transactional
+    public long countPrograms() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return (long) currentSession.createQuery("select count(p) from Program p").uniqueResult();
+    }
+
 }

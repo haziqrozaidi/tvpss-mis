@@ -3,6 +3,7 @@ package com.example.tvpssmis.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "program")
@@ -26,6 +27,10 @@ public class Program implements Serializable {
 
     @Column(name = "status", columnDefinition = "VARCHAR(20) DEFAULT 'Active'")
     private String status = "Active";
+    
+    @OneToMany(mappedBy = "program", cascade = CascadeType.PERSIST)
+    private List<Studio> studios;
+
 
     // Default constructor
     public Program() {

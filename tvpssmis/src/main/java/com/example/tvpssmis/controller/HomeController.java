@@ -91,7 +91,7 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/student/form")
+	@GetMapping("/students/form")
 	public ModelAndView studentForm() {
 		ModelAndView modelAndView = new ModelAndView("StudentForm");
 		return modelAndView;
@@ -108,7 +108,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView("UpdateContentInformation");
 		return modelAndView;
 	}
-	
+
 	// Resource Management Module
 	@GetMapping("/equipment/dashboard")
     public ModelAndView dashboard() {
@@ -141,7 +141,7 @@ public class HomeController {
 
         return modelAndView;
     }
-	
+
 	// Resource Management Module
 	@GetMapping("/equipment/school")
 	public ModelAndView equipmentSchool() {
