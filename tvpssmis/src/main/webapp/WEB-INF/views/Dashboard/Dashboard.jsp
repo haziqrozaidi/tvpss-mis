@@ -100,7 +100,16 @@
         </div>
       </div>
     </div>
-
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const studentNavLink = document.querySelector(
+          'a[href="/tvpssmis/dashboard/user"]',
+        );
+        if (studentNavLink) {
+          studentNavLink.classList.add("active");
+        }
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

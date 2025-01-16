@@ -102,7 +102,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const applicationNavLink = document.querySelector(
-          'a[href="/tvpssmis/studentApplication/dashboard"]',
+          'a[href="/tvpssmis/students/application"]',
         );
         if (applicationNavLink) {
           applicationNavLink.classList.add("active");

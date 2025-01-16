@@ -206,18 +206,21 @@ pageEncoding="UTF-8"%>
           <use xlink:href="#chevron-right" />
         </svg> Student Application
 		</a></li>
-		<li class="nav-item"><a href="/tvpssmis/student/application"
+		<li class="nav-item"><a href="/tvpssmis/students/application"
 			class="nav-link text-white" aria-current="page"> <svg
 					class="bi me-2" width="16" height="16">
           <use xlink:href="#grid" />
         </svg> Manage Application
 		</a></li>
-		<li class="nav-item"><a href="/tvpssmis/students/form"
-			class="nav-link text-white" aria-current="page"> <svg
-					class="bi me-2" width="16" height="16">
-          <use xlink:href="#people-circle" />
-        </svg> Student Form
-		</a></li>
+		<c:if
+			test="${role.roleName == 'Admin' || role.roleName == 'Student'}">
+			<li><a href="/tvpssmis/students/form"
+				class="nav-link text-white"> <svg class="bi me-2" width="16"
+						height="16">
+                    <use xlink:href="#geo-fill" />
+                    <use xlink:href="#people-circle" />
+        </svg> Student Form</a></li>
+		</c:if>
 	</ul>
 	<hr />
 	<div class="dropdown">

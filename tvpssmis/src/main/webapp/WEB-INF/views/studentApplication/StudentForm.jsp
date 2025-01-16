@@ -89,5 +89,14 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
+<script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const studentNavLink = document.querySelector(
+          'a[href="/tvpssmis/students/form"]',
+        );
+        if (studentNavLink) {
+          studentNavLink.classList.add("active");
+        }
+      });
+    </script>
 </html>
