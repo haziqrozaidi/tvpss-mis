@@ -1,6 +1,7 @@
 package com.example.tvpssmis.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -141,6 +144,15 @@ public class HomeController {
 
         return modelAndView;
     }
+	@RequestMapping("/error")
+	public String handleError(Model model, HttpSession session) {
+	    String errorMessage = (String) session.getAttribute("errorMessage");
+	    if (errorMessage == null) {
+	        errorMessage = "An unexpected error occurred.";
+	    }
+	    model.addAttribute("error", errorMessage);
+	    return "error";
+	}
 
 	// Resource Management Module
 	@GetMapping("/equipment/school")
