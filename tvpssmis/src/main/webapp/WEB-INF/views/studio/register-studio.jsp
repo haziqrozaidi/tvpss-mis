@@ -2,25 +2,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Register Studio | TVPSS MIS</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Register Studio | TVPSS MIS</title>
+<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome for icons -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <style>
-      <%@include file="/WEB-INF/views/css/sidebars.css"%>
+        <%@ include file="/WEB-INF/views/css/sidebars.css" %>
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 	<div class="d-flex" style="min-height: 100vh">
 		<!-- Sidebar Include -->
 		<%@ include file="/WEB-INF/views/fragments/sidebar.jsp"%>
@@ -71,6 +66,16 @@
 									</select>
 								</div>
 							</div>
+							<div class="col-md-6 mb-3">
+								<label class="form-label">Associated Program</label> <select
+									class="form-select" name="programId" required>
+									<option value="" disabled selected>Select Program</option>
+									<c:forEach var="program" items="${programs}">
+										<option value="${program.programId}">
+											${program.youTubeChannelLink}</option>
+									</c:forEach>
+								</select>
+							</div>
 						</div>
 
 
@@ -114,8 +119,6 @@
 								<i class="bi bi-plus"></i> Add Crew Member
 							</button>
 						</div>
-
-
 						<!-- Equipment Details -->
 						<div class="form-section">
 							<h4 class="mb-3">Equipment Details</h4>
@@ -210,7 +213,7 @@
 		</div>
 	</div>
 	<!-- JavaScript for dynamic fields -->
-    <script>
+	<script>
       document.addEventListener("DOMContentLoaded", function () {
         const today = new Date().toISOString().split("T")[0];
         document.getElementById("establishmentDate").value = today;
@@ -313,5 +316,5 @@
         }
       });
     </script>
-  </body>
+</body>
 </html>

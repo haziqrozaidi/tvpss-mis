@@ -34,10 +34,12 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
 	    // Redirect based on role
         String redirectUrl;
-        if (user.getRole().getRoleName().equals("Teacher") || 
-            user.getRole().getRoleName().equals("Student")) {
+        if (user.getRole().getRoleName().equals("Teacher")) {
             redirectUrl = request.getContextPath() + "/dashboard/user";
-        } else {
+        }else if(user.getRole().getRoleName().equals("Student")) {
+        	redirectUrl = request.getContextPath() + "/application/dashboard";
+        }
+        else {
             redirectUrl = request.getContextPath() + "/equipment/dashboard";
         }
 

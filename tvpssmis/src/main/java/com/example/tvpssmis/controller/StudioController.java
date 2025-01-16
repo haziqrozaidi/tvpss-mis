@@ -6,6 +6,7 @@ import com.example.tvpssmis.entity.Program;
 import com.example.tvpssmis.entity.Studio;
 import com.example.tvpssmis.entity.User;
 import com.example.tvpssmis.service.CrewService;
+import com.example.tvpssmis.service.ProgramService;
 import com.example.tvpssmis.service.StudioService;
 import com.example.tvpssmis.service.equipment.ProgramDAO;
 import com.example.tvpssmis.service.equipment.UserDAO;
@@ -34,13 +35,15 @@ public class StudioController {
     private final ProgramDAO programDAO;
     private final UserDAO userDAO;
     private final CrewService crewService;
+    private final ProgramService programService;
     
     @Autowired
-    public StudioController(StudioService studioService, ProgramDAO programDAO, UserDAO userDAO,CrewService crewService) {
+    public StudioController(StudioService studioService, ProgramDAO programDAO, UserDAO userDAO,CrewService crewService,ProgramService programService) {
         this.studioService = studioService;
         this.programDAO = programDAO;
         this.userDAO = userDAO;
         this.crewService = crewService;
+        this.programService = programService;
     }
 
     @GetMapping
@@ -79,16 +82,29 @@ public class StudioController {
     public String showRegisterStudioForm(Model model, HttpSession session) {
         User loggedInUser = (User) session.getAttribute("user");
 
+        // Check if the user is logged in and is a teacher
         if (loggedInUser == null || loggedInUser.getRole().getRoleId() != 2) { // Only teachers
             model.addAttribute("error", "Unauthorized access.");
             return "error";
         }
-     // Fetch students and teachers from the same school
-        List<User> users = userDAO.findBySchoolId(loggedInUser.getSchool().getSchoolId());
+
+        int schoolId = loggedInUser.getSchool().getSchoolId();
+
+        // Fetch users (students and teachers) from the same school
+        List<User> users = userDAO.findBySchoolId(schoolId);
         model.addAttribute("users", users);
+
+        // Fetch programs associated with the school
+        List<Program> programs = programService.getProgramsBySchoolId(schoolId);
+        model.addAttribute("programs", programs);
+
+        // Add the logged-in user to the model
         model.addAttribute("user", loggedInUser);
+
+        // Return the view for studio registration
         return "studio/register-studio";
     }
+
 
     @PostMapping("/register")
     public String registerStudio(HttpServletRequest request, HttpSession session, Model model) {
@@ -107,13 +123,14 @@ public class StudioController {
         studio.setStatus("Pending");
         // Extract Studio Level
         studio.setStudioLevel(request.getParameter("studioLevel"));
-        // Assign Program to Studio
-        List<Program> programs = programDAO.findBySchoolId(loggedInUser.getSchool().getSchoolId());
-        if (programs.isEmpty()) {
-            model.addAttribute("error", "No program found for the user's school.");
+     // Assign the selected program to the studio
+        int programId = Integer.parseInt(request.getParameter("programId")); // Get the selected program ID
+        Program program = programService.getProgramById(programId);
+        if (program == null) {
+            model.addAttribute("error", "Selected program not found.");
             return "error";
         }
-        studio.setProgram(programs.get(0));
+        studio.setProgram(program);
 
         // Extract Crew Data
         List<Crew> crews = new ArrayList<>(); // Initialize the list to store crew members
