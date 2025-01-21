@@ -63,9 +63,11 @@
 
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="mb-0">Application Summary</h2>
-          <a href="${pageContext.request.contextPath}/students/application" class="btn btn-secondary">
+          <c:if test="${role.roleId == 1 || role.roleId == 4 || role.roleId == 5}">
+          <a href="${pageContext.request.contextPath}/studentApplication/manage" class="btn btn-secondary">
             <i class="fas fa-arrow-right"></i> Manage Applications
           </a>
+          </c:if>
         </div>
 
         <table class="table table-striped table-hover">
@@ -73,17 +75,20 @@
             <tr>
               <th>Application ID</th>
               <th>Program ID</th>
-              <th>Status</th>
               <th>Apply Date</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <c:choose>
               <c:when test="${not empty applications}">
+              	<c:if test="${hasApplication}">
                 <c:forEach var="application" items="${applications}">
                   <tr>
-                    <td>${application.applicationId}</td>
-                    <td>${application.programId}</td>
+                    <td>${application.application_Id}</td>
+                    <td><a href= "${application.programID.youTubeChannelLink}" target=" blank">${application.programID.youTubeChannelLink}</a></td>
+                    <td>${application.applyDate}</td>
                     <td>
                       <span
                         class="badge bg-${application.status == 'Accepted' ? 'success' : application.status == 'Rejected' ? 'danger' : 'warning'}"
@@ -91,9 +96,23 @@
                         ${application.status}
                       </span>
                     </td>
-                    <td>${application.applyDate}</td>
+                    <td>
+                    	<c:if test="${application.status == 'Pending' || application.status == 'Rejected'}">
+                    	<form
+                    		action="${pageContext.request.contextPath}/dashboard/delete"
+                    		method="post" style="display: inline;">
+                    		<input type="hidden" name="application_id"
+                    			value="${application.application_Id}" />
+                    		<button type="submit" class="btn btn-sm btn-danger"
+									onclick="return confirm('Are you sure you want to delete this application?');">
+								<i class="fas fa-trash-alt"></i> Delete
+							</button>
+						</form>
+						</c:if>
+                    	
                   </tr>
                 </c:forEach>
+                </c:if>
               </c:when>
               <c:otherwise>
                 <tr>

@@ -40,9 +40,9 @@
                 <thead class="table-dark">
                   <tr>
                     <th>Application ID</th>
-                    <th>Program ID</th>
+                    <th>Program</th>
                     <th>Apply Date</th>
-                    <th>Interests</th>
+                    
                     <th>Skills</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -53,10 +53,9 @@
                     <c:when test="${not empty applications}">
                       <c:forEach var="application" items="${applications}">
                         <tr>
-                          <td>${application.applicationId}</td>
-                          <td>${application.programId}</td>
+                          <td>${application.application_Id}</td>
+                          <td><a href= "${application.programID.youTubeChannelLink}" target=" blank">${application.programID.youTubeChannelLink}</a></td>
                           <td>${application.applyDate}</td>
-                          <td>${application.interests}</td>
                           <td>${application.skills}</td>
                           <td>
                             <span
@@ -68,13 +67,13 @@
                           <td>
                             <div class="btn-group" role="group">
                               <form method="post" action="${pageContext.request.contextPath}/studentApplication/accept" style="display:inline;">
-                                <input type="hidden" name="applicationId" value="${application.applicationId}" />
+                                <input type="hidden" name="application_Id" value="${application.application_Id}" />
                                 <button type="submit" class="btn btn-sm btn-success">
                                   <i class="fas fa-check"></i>
                                 </button>
                               </form>
                               <form method="post" action="${pageContext.request.contextPath}/studentApplication/reject" style="display:inline;">
-                                <input type="hidden" name="applicationId" value="${application.applicationId}" />
+                                <input type="hidden" name="application_Id" value="${application.application_Id}" />
                                 <button type="submit" class="btn btn-sm btn-danger">
                                   <i class="fas fa-times"></i>
                                 </button>
