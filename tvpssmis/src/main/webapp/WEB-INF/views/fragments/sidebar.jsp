@@ -175,7 +175,7 @@ pageEncoding="UTF-8"%>
           <use xlink:href="#chevron-right" />
         </svg> Content
 		</a></li>
-		<li><a href="#"
+		<li><a href="content/create"
 			class="nav-link text-white"> <svg class="bi me-2"
 					width="16" height="16">
           <use xlink:href="#grid" />
@@ -187,7 +187,7 @@ pageEncoding="UTF-8"%>
           <use xlink:href="#table" />
         </svg> Upload Document
 		</a></li>
-		<li class="nav-item"><a href="#"
+		<li class="nav-item"><a href="/tvpssmis/content"
 			class="nav-link text-white" aria-current="page"> <svg
 					class="bi me-2" width="16" height="16">
           <use xlink:href="#collection" />
